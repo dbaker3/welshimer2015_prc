@@ -13,7 +13,7 @@
 
 	<footer id="colophon" class="site-footer widget-text" role="contentinfo">
       <div class="footer-column">
-      <div class="footer-logo">&#xe601;</div>
+      <div class="footer-logo"><a href="http://www.milligan.edu" target="_blank">&#xe601;</a></div>
       <div class="site-info">
 			<?php do_action( 'welshimer2013_credits' ); ?>
          ©2014 Milligan College. All Rights Reserved.
@@ -22,7 +22,7 @@
       <div class="footer-column">
          <p>200 Blowers Blvd., Milligan College, TN 37682</p>
          <p>423.461.8703 | <a href="mailto:<?php echo antispambot('library@milligan.edu') ?>"><?php echo antispambot('library@milligan.edu') ?></a></p>
-         <p><a href="http://www.milligan.edu/wp-content/uploads/2014/08/CampusMap.pdf" target="_blank">Campus Map</a> | <a href="http://www.milligan.edu/visit" target="_blank">Directions &amp; Accomodations</a></p>
+         <p><a href="http://www.milligan.edu/wp-content/uploads/2014/08/CampusMap.pdf" target="_blank">Campus Map</a> | <a href="http://www.milligan.edu/visit" target="_blank">Directions &amp; Accommodations</a></p>
       </div>
       <div class="footer-column">
          <p><a href="http://www.milligan.edu/about" target="_blank">About Milligan</a></p>

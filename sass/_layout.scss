@@ -32,6 +32,9 @@ body {
 .site-header {
    background-color:$milwhite;
    height:8.5em;
+   a {
+      text-decoration: none;
+   }
    @media all and (min-width:600px) {
       height:11em;
    }
@@ -205,9 +208,7 @@ body {
 .site-footer {
    background:$milgray;
    color:$black !important;
-   /*clear:both;*/
    width: 100%;
-   /*text-align:center;*/
    height:8em;
    @media all and (min-width:800px) {
       background: transparent;
@@ -218,9 +219,6 @@ body {
    font-family:'icon-font';
    font-size:3.5em;
    display:block;
-   opacity:0.7;
-   /*width:100%;*/
-   /*text-align:center;*/
    img {
       width:18em;
    } 
@@ -229,13 +227,16 @@ body {
 .site-info {
    display:block;
    font-size: 75%;
-   /*width:100%;*/
 }
 
 .footer-column {
    display: inline-block;
    float: left;
    margin-right: 5em;
+   color: $black;
+   div a { 
+      text-decoration: none; 
+   }
    p {
       margin: 0;
       padding-top: 0.8em;
