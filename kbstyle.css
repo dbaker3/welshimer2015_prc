@@ -1,0 +1,194 @@
+
+body {
+   background-image: none;
+   max-width: none;
+   
+}
+
+a {
+   text-decoration: none;
+   color: #0086b3;
+}
+
+a:visited {
+   color: #0086b3;
+}
+
+a:hover {
+   color: #444;
+   text-decoration: underline;
+}
+
+a:active {
+   color: #EC3B9F;
+}
+
+#page {
+   margin: 0 0;
+   max-width: none;
+   width: 100%;
+}
+
+#primary-menu #topbar {
+   top: 5.5em;
+}
+
+#primary-menu .main-navigation {
+   top: 5.5em;
+}
+
+.milligan-logo {
+   margin:1.1em 0 0 0.5em; 
+   font: 1.5em "open sans";
+   color: #fff;
+   opacity: 1;
+}
+
+.site-header { 
+   height: 6em;
+}
+   
+.milligan-logo a {
+   text-decoration: none;
+   color: #fff;
+   font-weight: bold;
+}
+
+.site-header {
+   background-color: #EC3B9F;
+}
+
+h4 {
+   font-style: normal;
+}
+
+th {
+   padding: 5px;
+}
+
+table td {
+   border-top: 1px solid #888;
+   padding:5px;
+}
+
+tr:nth-child(odd) {
+   background-color: #ddd;
+}
+
+thead tr:nth-child(odd) {
+   background-color: transparent;
+}
+
+
+.well {
+   position: relative;
+   float: left;
+   border:1px solid #888;
+   background-color: #eee;
+   padding:10px;
+   margin:10px 0 20px 0;
+   width:90%;
+   border-radius:2px;
+   
+}
+
+.span10 {
+width: 100%;
+}
+
+.span5 {
+   position: relative;
+   float: left;
+   min-width: 100%;
+   margin: 10px 15px 0 0;
+}
+
+dd {
+   margin: 0px 1.5em 0.5em;
+   font-size: 90%;
+}
+
+#content {
+   margin: 0 1%;
+}
+
+td.password::before {
+   color: #0086b3;
+   content: "********";
+}
+
+td.password:hover:before {
+   display:none;
+}
+
+td.password {
+   color: transparent;
+}
+
+td.password:hover {
+   color: #000;
+}
+
+.label {
+   position: relative;
+   top: -0.1em;
+   background-color: #ec3b9f;
+   border-radius: 2px;
+   padding: 0px 3px;
+   font-size:80%;
+   font-weight: normal;
+   color: #fff;
+}
+
+.label-important {
+   background-color: #B94A48;
+}
+
+code {
+   background-color: #ddd;
+   border: 1px solid #ccc;
+   border-radius: 2px;
+   padding: 0px 3px;
+}
+
+
+
+
+
+@media all and (min-width: 800px) {
+   .milligan-logo { 
+      margin: -0.9em 20px 0px;
+      opacity 0.75;
+      font: 3em "open sans";
+   }
+   
+   #primary-menu #topbar {
+      top: 4.3em;
+   }
+
+   #primary-menu .main-navigation {
+      top: 4.3em;
+   }
+   
+   .site-header {
+   border: none;
+   }
+   
+   .site-content {
+      padding: 3% 0 0 0;
+   }
+   
+   #content {
+      margin: 0 6%;
+   }
+   
+   .span5 {
+      min-width:46%;
+      max-width:70%;
+   }
+   
+   #menu-secondary a {
+      color: #fff;
+   }
+}
+

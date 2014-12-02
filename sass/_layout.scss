@@ -1,0 +1,287 @@
+/* -----------------------------------------------------------------------------
+ *                                  Layout
+ * ---------------------------------------------------------------------------*/
+
+
+* {
+   @include box-sizing('border-box');
+}
+
+html {
+   position:relative;
+   top:46px;
+   @media all and (min-width:800px) {
+      top:0;
+      border-top: 10px solid $orange;
+   }
+}
+
+body { 
+   background-image: $site-background-image;
+   background-color: $milgray;
+   background-repeat: repeat-x;
+   min-width:320px;
+   max-width:1100px;
+   position:static;
+   @media all and (min-width:800px) {
+      min-width:960px;
+      margin:0 auto;
+   }
+}
+
+.site-header {
+   background-color:$milwhite;
+   height:8.5em;
+   @media all and (min-width:600px) {
+      height:11em;
+   }
+   @media all and (min-width:800px) {
+      height:16em;
+   }
+}
+
+.milligan-logo {
+   font:normal normal normal 5em 'icon-font';
+   color:$black;
+   margin:0.1em 0 0 0.1em;
+   float:left;
+   img {width:100%; height:auto;}
+   @media all and (min-width:600px) {
+      font-size:6em;
+      margin:0.15em 0 0 0.1em;
+   }
+   @media all and (min-width:800px) {
+      font-size:6em;
+      margin:-0.3em 0 0 0.5em;
+   }
+}
+
+.welshimer-logo {
+   position:relative;
+   font-family: "open sans", sans-serif;
+   font-style:normal;
+   font-size:1.8em;
+   color:$black;
+   margin:-0.1em 0px 0px 0.2em;
+   float:left;
+   @media all and (min-width:600px) {
+      font-size:2.5em;
+      margin:0em 0 0 0.2em;
+   }
+   @media all and (min-width:800px) {
+      font-size:2.5em;
+      margin: 0em 0 0 1.2em;
+   }
+}
+
+.social-menu {
+   float:left;
+   width:100%;
+   font-family:'icon-font';
+   z-index:999999;
+   ul {overflow:auto;}
+   li {
+      text-align:center;
+      width:33.3333%;
+      margin:0;
+      font-size:1.5em;
+      list-style:none;
+      float:left;
+   }
+   @media all and (min-width:800px) {
+      width:10em;
+      position:absolute;
+         top:0;
+         right:0;;
+      ul {background-color: transparent !important;}
+      a {
+         padding:0.075em 0.5em !important;
+         &:last-of-type {
+            border-right:none !important;
+         }
+      }
+   }
+}
+
+#page { 
+   background-color:$milgray;
+   position:relative;
+   margin:0;
+   width:100%;
+   overflow:hidden;
+   @media all and (min-width:800px) {
+      margin:0 2%;
+      max-width:1100px;
+      overflow:visible;
+      width:96%;
+   }
+}
+
+.site-content {
+   float: left;
+   margin: 0 -22em 0 0;
+   width: 100%;
+   @media all and (min-width:800px) {
+      padding: 1% 0 0 2.5%;
+      min-height: 62em;
+   }
+}
+
+#content {
+   margin: 0 1em 0 0;
+   @media all and (min-width:800px) {
+      margin:0 32em 0 0;
+   }
+}
+
+.widget-area { /* Sidebar 1 */
+   background: $white; //$dark-grey;
+   overflow: visible;
+   width: 22em;
+   position:absolute;
+   top:10em;
+   right:-20.5em;
+   @include border-radius();
+   z-index:99;
+   transition: right linear 0.25s;
+   border: 1px solid $black;
+   border-right: none;
+   @media all and (min-width:800px) {
+      background:$milgray;
+      @include border-left-radius();
+      right:5%;
+      top:15.75em;
+      transition: none;
+      border: none;
+   }
+}
+
+.side-expand {
+   display:block; visibility:visible;
+   position:absolute;
+   top:5%;
+   left:0;
+   width:1.3em;
+   height:90%;
+   background-color: $white; //$dark-grey;
+   //border-right:solid 1px darken($dark-grey, 5%);
+   z-index:0;
+   &:after {
+      font-family:icon-font;
+      font-size:1em;
+      color:$black;
+      content: "\e00e";
+      position:absolute;
+      top:49%;
+      left:5px;
+      vertical-align:center;
+      cursor:pointer;
+   }
+   &:hover:after {
+      color:$black;
+      left: 5px;
+   }
+   @media all and (min-width:800px) {
+      visibility:hidden;
+   }
+}
+
+.side-expand-open {
+   right:0;
+}
+
+.side-expand-open .side-expand:after {
+      content:"\e00f";
+}
+
+#tertiary { /* Sidebar 2 */
+   clear: right;
+}
+
+#colophon {
+   clear:both;
+}
+
+.site-footer {
+   background:$milgray;
+   color:$black !important;
+   /*clear:both;*/
+   width: 100%;
+   /*text-align:center;*/
+   height:8em;
+   @media all and (min-width:800px) {
+      background: transparent;
+   }
+}
+
+.footer-logo {
+   font-family:'icon-font';
+   font-size:3.5em;
+   display:block;
+   opacity:0.7;
+   /*width:100%;*/
+   /*text-align:center;*/
+   img {
+      width:18em;
+   } 
+}
+
+.site-info {
+   display:block;
+   font-size: 75%;
+   /*width:100%;*/
+}
+
+.footer-column {
+   display: inline-block;
+   float: left;
+   margin-right: 5em;
+   p {
+      margin: 0;
+      padding-top: 0.8em;
+      font-size:85%;
+      a {
+         text-decoration: none;
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+   }
+}
+
+.foot-noscript {
+   font-family: $font-default-family;
+   text-align:center;
+   background:rgba(red, 0.9);
+   color:$white;
+   font-size:1.5em;
+   height:4em;
+   padding:1em 0;
+   margin:0;
+   position:fixed;
+   bottom:0;
+   left:0;
+   width:100%;
+   z-index:999999999;
+   a {color:$white; font-weight:bold;text-decoration:underline;}
+}
+
+.old-ie-nojs {
+  display:none;
+}
+
+
+/* staff profiles */
+
+.profile {
+   display:block;
+   margin-top:2em;
+}
+   
+.profile p { 
+   margin-bottom:1em;
+}
+
+.profile img {
+   display:block;
+}

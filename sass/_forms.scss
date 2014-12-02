@@ -1,0 +1,82 @@
+/* -----------------------------------------------------------------------------
+ *                                  Forms
+ * ---------------------------------------------------------------------------*/
+
+ 
+.welshimer-form {
+
+   .form {
+      margin:0.5em 0;
+   }
+   
+   .submit {
+      display:block;
+      @include border-radius(2px);
+      background-color:$blue;
+      border:solid 1px $grey-80;
+      color:$white;
+      margin:1em 0;
+      padding:0.5em 2em;
+      text-align:center;
+      text-decoration:none;
+      &:hover {
+         @include transition();
+         background-color:$orange;
+         cursor:pointer;
+      }
+   }
+
+   $form-margin-right: 1%;
+
+   .text, .textarea, {
+      display:inline-block;
+      width:100%;
+      padding:0.5em;
+      margin-right:$form-margin-right;
+      vertical-align:top;
+   }
+
+   .quarter {
+      width:25% - $form-margin-right;
+   }
+
+   .half {
+      width:50% - $form-margin-right;
+   }
+
+   .three-fourths {
+      width:75% - $form-margin-right;
+   }
+
+   .full {
+      width:100% - $form-margin-right;
+   }
+
+   .label {
+      display:block;
+   }
+
+   @media all and (min-width:600px){
+      .text, .textarea {
+         width:75% - $form-margin-right;
+      }
+
+      .three-fourths {
+         width:50% - $form-margin-right;
+      }
+
+      .half {
+         width:25% - $form-margin-right;
+      }
+
+      .quarter {
+         width:25% - $form-margin-right;
+      }
+    
+      .label {
+         display:inline-block;
+         width:25% - $form-margin-right;
+         margin-right:$form-margin-right;
+      }
+   }
+} /* END welshimer-form */

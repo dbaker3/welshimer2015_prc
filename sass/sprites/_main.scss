@@ -1,0 +1,124 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$main-sprite-base-class: ".main-sprite" !default;
+$main-sprite-dimensions: false !default;
+$main-position: 0% !default;
+$main-spacing: 0 !default;
+$main-repeat: no-repeat !default;
+$main-prefix: '' !default;
+$main-clean-up: true !default;
+$main-layout:vertical !default;
+$main-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $main-mc-position: $main-position !default;
+   $main-mc-spacing:  $main-spacing !default;
+   $main-mc-repeat:   $main-repeat !default;
+ 
+   $main-mcicon-position: $main-position !default;
+   $main-mcicon-spacing:  $main-spacing !default;
+   $main-mcicon-repeat:   $main-repeat !default;
+ 
+   $main-mcsearch-position: $main-position !default;
+   $main-mcsearch-spacing:  $main-spacing !default;
+   $main-mcsearch-repeat:   $main-repeat !default;
+ 
+   $main-mctop_re-position: $main-position !default;
+   $main-mctop_re-spacing:  $main-spacing !default;
+   $main-mctop_re-repeat:   $main-repeat !default;
+ 
+   $main-smallstar-position: $main-position !default;
+   $main-smallstar-spacing:  $main-spacing !default;
+   $main-smallstar-repeat:   $main-repeat !default;
+ 
+   $main-top_re-position: $main-position !default;
+   $main-top_re-spacing:  $main-spacing !default;
+   $main-top_re-repeat:   $main-repeat !default;
+ 
+
+ $main-sprites: sprite-map("main/*.png",
+ 
+   $main-mc-position: $main-mc-position, 
+   $main-mc-spacing:  $main-mc-spacing, 
+   $main-mc-repeat:   $main-mc-repeat,
+ 
+   $main-mcicon-position: $main-mcicon-position, 
+   $main-mcicon-spacing:  $main-mcicon-spacing, 
+   $main-mcicon-repeat:   $main-mcicon-repeat,
+ 
+   $main-mcsearch-position: $main-mcsearch-position, 
+   $main-mcsearch-spacing:  $main-mcsearch-spacing, 
+   $main-mcsearch-repeat:   $main-mcsearch-repeat,
+ 
+   $main-mctop_re-position: $main-mctop_re-position, 
+   $main-mctop_re-spacing:  $main-mctop_re-spacing, 
+   $main-mctop_re-repeat:   $main-mctop_re-repeat,
+ 
+   $main-smallstar-position: $main-smallstar-position, 
+   $main-smallstar-spacing:  $main-smallstar-spacing, 
+   $main-smallstar-repeat:   $main-smallstar-repeat,
+ 
+   $main-top_re-position: $main-top_re-position, 
+   $main-top_re-spacing:  $main-top_re-spacing, 
+   $main-top_re-repeat:   $main-top_re-repeat,
+ 
+ $layout: $main-layout,
+ $cleanup: $main-clean-up
+ );
+
+
+// All sprites should extend this class
+// The main-sprite mixin will do so for you.
+@if $main-inline {
+  #{$main-sprite-base-class} {
+    background-image: inline-sprite($main-sprites);
+  } 
+} @else {
+  #{$main-sprite-base-class} {
+    background: $main-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function main-sprite-width($name) {
+    $file: sprite_file($main-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function main-sprite-height($name) {
+    $file: sprite_file($main-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin main-sprite-dimensions($name) {
+  @include sprite-dimensions($main-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin main-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($main-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin main-sprite($name, $dimensions: $main-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$main-sprite-base-class};
+  @include sprite($main-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin main-sprites($sprite-names, $dimensions: $main-sprite-dimensions, $prefix: sprite-map-name($main-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($main-sprites, $sprite-names, $main-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-main-sprites($dimensions: $main-sprite-dimensions, $prefix: sprite-map-name($main-sprites), $offset-x: 0, $offset-y: 0) {
+  @include main-sprites(mc mcicon mcsearch mctop_re smallstar top_re, $dimensions, $prefix, $offset-x, $offset-y);
+}

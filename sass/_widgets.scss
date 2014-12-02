@@ -1,0 +1,134 @@
+/* -----------------------------------------------------------------------------
+ *                                   Widgets
+ * ---------------------------------------------------------------------------*/
+
+ 
+.widget {
+   margin: 0;
+}
+
+
+/* Today's Hours */
+
+.clock-icon {
+   &:before {
+   margin-right:0.5em;
+   font-family:icon-font;
+   content:"\e600";
+   }
+}
+
+/* Search widget */
+
+#searchsubmit {
+   display: none;
+}
+
+#secondary aside {
+   a {
+      text-decoration:none;
+      @include link-colors($twitter-link-color-normal, 
+                           $twitter-link-color-hover, 
+                           $twitter-link-color-active,
+                           $twitter-link-color-visited,
+                           $twitter-link-color-focus
+      );
+    
+      &:hover {text-decoration:underline;}
+   }
+   
+   padding:0.5em 0;
+   border-bottom:1px solid lighten($dark-grey, 5%);
+   &:first-child {
+      padding-top:0;
+   }
+   &:last-child {
+      @include box-shadow(none);
+      border-bottom:none;
+      padding-bottom:0;
+   }
+} /* END #secondary aside */
+
+.textwidget {
+   padding:0 1em 0 1.5em;
+}
+
+.contact-icon {
+   &:before {
+   margin-right:0.5em;
+   font-family:icon-font;
+   content:"\e002";
+   }
+}
+
+
+/*Twitter Widget */
+
+.twitter-icon{
+   &:before {
+      margin-right:0.5em;
+      font-family:icon-font;
+      content:"\e01c";
+   }
+}
+
+#twitter {
+   .tweet-text, .tweet-foot {padding:0 0 0.5em 0;}
+   .tweet-foot {display:none;font-size:0.9em;}
+
+   .tweet {
+      padding:0.5em 0 0 0;
+
+      &:last-of-type{
+         border-bottom:none;
+      }
+   }
+}
+
+
+/* Libraryh3lp Widget */
+
+.libraryh3lp {
+   margin:0;
+   padding:0;
+   a {&:hover{text-decoration:none;}}
+}
+
+.chat-icon{
+   &:before {
+      margin-right:0.5em;
+      font-family:icon-font;
+      content:"\e017";
+   }
+}
+
+.live-chat {
+   position:relative;
+   overflow:auto;
+   @include border-radius(2px);
+   background-color:$blue;
+   border:solid 1px $grey-80;
+   color:$white;
+   margin:0.25em 0;
+   padding:0.5em 2em 0.5em 0.5em;
+   width:100%;
+   cursor:pointer;
+}
+
+.on {
+  background-color: $blue; 
+  &:hover {
+      @include transition();
+      background-color: $orange;
+      color:$white;
+   }
+}
+
+.off {
+  background-color: $milgray;
+  color: $grey;
+  &:hover {
+      background-color: $milgray;
+      color:$grey;
+   }
+}

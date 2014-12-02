@@ -1,0 +1,121 @@
+/* -----------------------------------------------------------------------------
+ *                         Accordion Style Lists
+ * -------------------------------------------------------------------------- */
+
+ 
+.acc-list { 
+	margin:0.5em 0;
+	padding:0;
+	list-style:none;
+}
+
+.acc-list-category { 
+	display:block;
+   @include border-radius(2px);
+	background-color:$blue;
+	color:$white;
+	cursor:pointer;
+	margin:0.25em 0;
+	padding:0.5em 2em 0.5em 0.5em;
+	position:relative;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	&:hover {
+      background-color: $orange;
+		color:$white;
+	}
+	&:after {
+		content:'\002b'; /*plus sign*/
+		position:absolute;
+		right:0.5em;
+		font-family:icon-font;
+	}
+}
+
+div.acc-list a.acc-list-category {
+   white-space: normal;
+   &:after {
+      content: none;
+   }
+}
+
+.open-item > a:after {
+		content:'\2013'; /* !important; minus sign*/
+}
+
+
+.acc-sublist { 
+	border-left:solid 1px $blue;
+	list-style:none;
+	margin:0;
+	padding:0;
+	li {
+		background:rgba($green, 0.05);
+		padding:0 0 0 3.5em;
+		position:relative;
+		&:before {
+			content:"";
+			display:inline-block;
+			width:3em;
+			height:26px;
+			position:absolute;
+				left:0.25em;
+				top:0;
+		}
+	}
+	li:nth-of-type(even) {
+		background:rgba($blue, 0.2);
+	}
+	li:hover{
+		background:rgba($blue, 0.4)
+	}
+	a {
+		color:$black;
+		text-decoration:none;
+	}
+} /* .acc-sublist */
+
+div.acc-list {
+   div.acc-sublist {
+      padding: 10px;
+      li {
+         padding: 0;
+      }
+   }
+   div.open-item > a:after {
+      content: none !important;
+   }
+}
+
+
+
+.mc:before {
+	@include main-sprite(mc);
+}
+
+.mctop_re:before {
+	@include main-sprite(mctop_re);
+}
+
+.top_re:before {
+	@include main-sprite(top_re);
+}
+
+.key span {
+	display:block;
+	margin:0.25em;
+	padding:0 0 0 2em;
+}
+
+.key-mc {
+	@include main-sprite(mc);
+}
+
+.key-topre {
+	@include main-sprite(smallstar);
+}
+
+.hidden {
+	display:none !important;
+}
