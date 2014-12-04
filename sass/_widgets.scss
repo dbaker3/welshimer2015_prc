@@ -61,6 +61,31 @@
    }
 }
 
+.sidebar-social-menu {
+   font-family: 'icon-font';
+   font-size: 2em;
+   display: inline-block;
+   padding-left: 0.75em;
+   ul {
+      background-color: transparent !important;
+      list-style: none;
+      margin: 0;
+      li {
+         float: left;
+         a {
+            padding:0 0.8em 0 0 !important;
+            &:last-of-type {
+               border-right:none !important;
+            }
+            &:hover {
+            text-decoration: none !important;
+            }
+         }
+      }
+   }
+   
+ 
+}
 
 /*Twitter Widget */
 

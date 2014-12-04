@@ -271,7 +271,7 @@
       .main-navigation li.current-menu-item a {
       }
 
-      #menu-primary li {
+      #menu-primary > li {
          margin-right: 1em;
       }
    }
@@ -300,7 +300,7 @@
       width:32em;
       position:absolute;
       top:5px;
-      right:5px;
+      right:4.4em;
       z-index:1;
    }
 

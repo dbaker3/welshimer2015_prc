@@ -92,6 +92,7 @@ body {
       float:left;
    }
    @media all and (min-width:800px) {
+      display:none;
       width:10em;
       position:absolute;
          top:0;
@@ -150,7 +151,7 @@ body {
    border: 1px solid $black;
    border-right: none;
    @media all and (min-width:800px) {
-      background:$milgray;
+      background-color: transparent;
       @include border-left-radius();
       right:5%;
       top:15.75em;
@@ -222,11 +223,17 @@ body {
    img {
       width:18em;
    } 
+   @media all and (min-width:800px) {
+      padding-left: 0.8em;
+   }
 }
 
 .site-info {
    display:block;
    font-size: 75%;
+   @media all and (min-width:800px) {
+      padding-left: 3.8em;
+   }  
 }
 
 .footer-column {
