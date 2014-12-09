@@ -34,10 +34,26 @@
 		echo ' | ' . sprintf( __( 'Page %s', 'welshimer2013' ), max( $paged, $page ) );
 
 	?></title>
-<link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" />
-<link rel="apple-touch-icon" href="/wp-content/uploads/images/icon.png" />
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+   <link rel="apple-touch-icon" type="image/png" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-57x57.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-114x114.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-72x72.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-144x144.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-60x60.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-120x120.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-76x76.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-152x152.png">
+   <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/favicons/apple-touch-icon-180x180.png">
+   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon-192x192.png" sizes="192x192">
+   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon-160x160.png" sizes="160x160">
+   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon-96x96.png" sizes="96x96">
+   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon-16x16.png" sizes="16x16">
+   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicons/favicon-32x32.png" sizes="32x32">
+   <meta name="msapplication-TileColor" content="<?php echo get_template_directory_uri(); ?>/#ffffff">
+   <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/favicons/mstile-144x144.png">
+
+   <link rel="profile" href="http://gmpg.org/xfn/11" />
+   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 <?php wp_head(); ?>
 <!--[if lt IE 9]>
@@ -82,8 +98,8 @@
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
-		<nav class="secondary-menu menu-text"><div class="secondary-menu-main"><?php wp_nav_menu( array( 'theme_location' => 'secondary' ) ); ?></div><div class="secondary-menu-select"><select><option>Go to...</option></select></div></nav>
-		<hgroup>
+		<nav class="secondary-menu menu-text"><div class="secondary-menu-main"><?php wp_nav_menu( array( 'theme_location' => 'secondary' ) ); ?></div><div class="secondary-menu-select"><select title="Milligan Links"><option>Go to...</option></select></div></nav>
+		<div id="hgroup">
          <?php if (is_page_template('kb-page.php')) { ?>
             <h4 class="milligan-logo"><a href="<?php echo home_url( '/kb' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library KB</a></h4>
          <?php }
@@ -96,7 +112,7 @@
          <!--
 			<h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/milligan-logo.png" /></a></h4>
          -->
-		</hgroup>
+		</div> <!-- #hgroup -->
 	</header><!-- #masthead .site-header -->
 
 	<div id="main">

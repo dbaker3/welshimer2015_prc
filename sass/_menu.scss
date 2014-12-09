@@ -73,11 +73,14 @@
          float:right;
          content:'\002b'; /*plus sign*/
          @media all and (min-width:800px){
+            font-family:'icon-font';
+            font-size: 70%;
                position:absolute;
-                  top:0.6em;
+                  top:1.3em;
                   right:0.25em;
                padding-left:2px;
             content: '\25BE'!important;/*small down triangle*/
+            content: '\e013' !important;
             }
          }
       }

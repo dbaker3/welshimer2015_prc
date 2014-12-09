@@ -29,6 +29,8 @@
    $form-margin-right: 1%;
 
    .text, .textarea, {
+      border:1px solid $darkdark;
+      @include border-radius();
       display:inline-block;
       width:100%;
       padding:0.5em;

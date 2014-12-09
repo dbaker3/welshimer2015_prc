@@ -1,5 +1,6 @@
 jQuery(document).ready(function(){
 
+
 //**************** matchMedia() polyfill *****************//
 
 window.matchMedia = window.matchMedia || (function(doc, undefined){
@@ -72,11 +73,26 @@ adapt(device); //Do first adapt on load
    
    /* SLide sidebar out/in on mobile for a moment to let people know it's there */
    if (device !== 'desktop') {
-      jQuery('.widget-area').toggleClass('side-expand-open', 300);
+   /* jQuery('.widget-area').toggleClass('side-expand-open', 300);
       setTimeout(function() 
       {
          jQuery('.widget-area').toggleClass('side-expand-open', 300);
-      }, 750);
+      }, 500); */
+      
+   /* jQuery('.side-expand').toggleClass('widget-area-flash', 300);
+      jQuery('.widget-area').toggleClass('widget-area-flash', 300); */
+      jQuery('.widget-area').css("right", "-15em");
+
+   /* jQuery('.widget-area').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); */
+      setTimeout(function() 
+         {
+         /* jQuery('.side-expand').toggleClass('widget-area-flash', 300);
+            jQuery('.widget-area').toggleClass('widget-area-flash', 300); */
+            jQuery('.widget-area').css("right", "");
+         }, 600
+      ); 
+      
+      
    }
    
    
@@ -133,7 +149,20 @@ function adapt(deviceVar){ //console.log(deviceVar);
 
   jQuery('a.timestamp').timeago()
 
-  });
+  
+  /* Firefox anchor bug (Bugzilla #645075) workaround */
+  if (location.href.indexOf('#') > -1)
+  {
+     location.href+='';
+  }
+  
+  /* FAQ Page - Show "Library's Hours" section when anchor in URL */
+  if (location.href.indexOf('faq/#hours') > -1) {
+     jQuery("#hours").parent().children(".acc-sublist").toggleClass("hidden");
+  }
+  
+  
+  }); /* end of jQuery(document).ready */
 
 //********************Chat Service JS*********************//
   (function() {
@@ -294,4 +323,7 @@ function adapt(deviceVar){ //console.log(deviceVar);
   // fix for IE6 suckage
   document.createElement("abbr");
   document.createElement("time");
+  
+  
+  
 }(jQuery));

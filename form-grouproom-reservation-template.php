@@ -172,28 +172,28 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 									<!--Group Room Reservation Form -->
 									<form action="<?php the_permalink(); ?>" method="post">
 									<!-- name -->
-										<p class="form"><label class="label" for="patron_name">Name:* </label><input tabindex="1" class="text three-fourths <?php if(isset($nameError)){echo 'fail';}?>" type="text" name="patron_name" value="<?php if(isset($patron_name)){echo $patron_name;} ?>"/></p>
+										<p class="form"><label class="label" for="patron_name">Name:* </label><input tabindex="1" class="text three-fourths<?php if(isset($nameError)){echo ' fail';}?>" type="text" id="patron_name" name="patron_name" value="<?php if(isset($patron_name)){echo $patron_name;} ?>"/></p>
 
 									<!-- email -->
-										<p class="form"><label class="label" for="patron_email">Milligan Email:* </label><input tabindex="2" class="text three-fourths <?php if(isset($emailError)){echo 'fail';}?>" type="email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_email">Milligan Email:* </label><input tabindex="2" class="text three-fourths<?php if(isset($emailError)){echo ' fail';}?>" type="email" id="patron_email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
 
 									<!-- date -->
-										<p class="form"><label class="label" for="time_date">Date:* </label><input tabindex="3" class="text half <?php if(isset($dateError)){echo 'fail';}?>" type="date" name="time_date" value="<?php if($time_date_valid){date('j/n/Y', $time_date_valid);} ?>" /></p>
+										<p class="form"><label class="label" for="time_date">Date:* </label><input tabindex="3" class="text half<?php if(isset($dateError)){echo ' fail';}?>" type="date" id="time_date" name="time_date" value="<?php if($time_date_valid){date('j/n/Y', $time_date_valid);} ?>" /></p>
 
 									<!-- start time -->
-										<p class="form"><label class="label" for="time_start">Start Time:* </label><input tabindex="4" class="text half <?php if(isset($timeStartError)){echo 'fail';}?>" type="text" name="time_start" value="<?php if($time_start_valid){echo date('g:i A', $time_start_valid);} ?>" /></p>
+										<p class="form"><label class="label" for="time_start">Start Time:* </label><input tabindex="4" class="text half<?php if(isset($timeStartError)){echo ' fail';}?>" type="text" id="time_start" name="time_start" value="<?php if($time_start_valid){echo date('g:i A', $time_start_valid);} ?>" /></p>
 
 									<!-- end time -->
-										<p class="form"><label class="label" for="time_end">End Time:* </label><input tabindex="5" class="text half <?php if(isset($timeEndError)){echo 'fail';}?>" type="text" name="time_end" value="<?php if($time_end_valid){echo date('g:i A', $time_end_valid);} ?>" /></p>
+										<p class="form"><label class="label" for="time_end">End Time:* </label><input tabindex="5" class="text half<?php if(isset($timeEndError)){echo ' fail';}?>" type="text" id="time_end" name="time_end" value="<?php if($time_end_valid){echo date('g:i A', $time_end_valid);} ?>" /></p>
 
 									<!-- purpose -->
-										<p class="form"><label class="label" for="patron_purpose">Purpose:* </label><input tabindex="6" class="text <?php if(isset($purposeError)){echo 'fail';}?>" type="text" name="patron_purpose" value="<?php if(isset($patron_purpose)){echo $patron_purpose;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_purpose">Purpose:* </label><input tabindex="6" class="text<?php if(isset($purposeError)){echo ' fail';}?>" type="text" id="patron_purpose" name="patron_purpose" value="<?php if(isset($patron_purpose)){echo $patron_purpose;} ?>" /></p>
 
 									<!-- honeypot -->
-										<p class="laylah"><label for="laylah">Required:*</label><input type="text" name="laylah" tabindex="999" /></p>
+										<p class="laylah"><label for="laylah">Required:*</label><input type="text" id="laylah" name="laylah" tabindex="999" /></p>
 
 									<!-- room -->
-										<p class="form"><label class="label" for="reserve_room">Room:* </label><select tabindex="7" class="text half <?php if(isset($roomError)){echo 'fail';}?>" name="reserve_room" ?>">
+										<p class="form"><label class="label" for="reserve_room">Room:* </label><select tabindex="7" class="text half<?php if(isset($roomError)){echo ' fail';}?>" id="reserve_room" name="reserve_room" >
 											<option value="">Select ... </option>
 											<option value="welshimer-room" <?php if($reserve_room === 'alum'){echo 'selected="selected"';} ?> >Welshimer Room</option>
 											<option value="hopwood-room" <?php if($reserve_room === 'hopwood'){echo 'selected="selected"';} ?> >Hopwood Room</option>
@@ -205,7 +205,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										</select>
 										</p>
 										<!-- message -->
-										<p class="form"><label class="label" for="patron_message">Special Instructions: </label><textarea tabindex="10" class="textarea" type="textarea" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
+										<p class="form"><label class="label" for="patron_message">Special Instructions: </label><textarea tabindex="10" class="textarea" id="patron_message" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
 										<!-- submit -->
 										<p class="form"><input class="submit full" type="submit" name="submit" value="Send Request" tabindex="11" ></p>
 									</form> <!-- end form -->

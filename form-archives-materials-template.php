@@ -109,10 +109,10 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 									<?php endif; ?>
 									<!--Archives Material Request Form -->
 									<form action="<?php the_permalink(); ?>" method="post">
-										<p class="form"><label class="label" for="patron_name">Name:* </label><input tabindex="1" class="text three-fourths <?php if(isset($nameError)){echo 'fail';}?>" type="text" name="patron_name" value="<?php if(isset($patron_name)){echo $patron_name;} ?>"/></p>
-										<p class="form"><label class="label" for="patron_email">Email:* </label><input tabindex="2" class="text three-fourths <?php if(isset($emailError)){echo 'fail';}?>" type="text" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
-										<p class="form"><label class="label" for="patron_telephone">Telephone:* </label><input tabindex="3" class="text half <?php if(isset($telephoneError)){echo 'fail';}?>" type="tel" autocomplete="on" name="patron_telephone" value="<?php if(isset($patron_telephone)){echo $patron_telephone;} ?>" /></p>
-										<p class="form"><label class="label" for="patron_affiliation">Affiliation:* </label><select tabindex="4" class="text three-fourths <?php if(isset($affiliationError)){echo 'fail';}?>" type="text" name="patron_affiliation" value="<?php if(isset($patron_affiliation)){echo $patron_affiliation;} ?>">
+										<p class="form"><label class="label" for="patron_name">Name:* </label><input tabindex="1" class="text three-fourths <?php if(isset($nameError)){echo 'fail';}?>" type="text" id="patron_name" name="patron_name" value="<?php if(isset($patron_name)){echo $patron_name;} ?>"/></p>
+										<p class="form"><label class="label" for="patron_email">Email:* </label><input tabindex="2" class="text three-fourths <?php if(isset($emailError)){echo 'fail';}?>" type="text" id="patron_email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_telephone">Telephone:* </label><input tabindex="3" class="text half <?php if(isset($telephoneError)){echo 'fail';}?>" type="tel" autocomplete="on" id="patron_telephone" name="patron_telephone" value="<?php if(isset($patron_telephone)){echo $patron_telephone;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_affiliation">Affiliation:* </label><select tabindex="4" class="text three-fourths <?php if(isset($affiliationError)){echo 'fail';}?>" id="patron_affiliation" name="patron_affiliation">
 											<option>Select ...</option>
 											<option value="alum" <?php if($patron_affiliation === 'alum'){echo 'selected="selected"';} ?> >Alum</option>
 											<option value="student" <?php if($patron_affiliation === 'student'){echo 'selected="selected"';} ?> >Student</option>
@@ -120,8 +120,8 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 											<option value="other" <?php if($patron_affiliation === 'other'){echo 'selected="selected"';} ?> >Other</option>
 											</select>
 										</p>
-										<p class="laylah"><label for="laylah">Required*: </label><input type="text" name="laylah" tabindex="999" /></p>
-										<p class="form"><label class="label" for="patron_message">Message:* </label><textarea tabindex="10" class="textarea" type="textarea" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
+										<p class="laylah"><label for="laylah">Required*: </label><input type="text" id="laylah" name="laylah" tabindex="999" /></p>
+										<p class="form"><label class="label" for="patron_message">Message:* </label><textarea tabindex="10" class="textarea" id="patron_message" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
 										<p class="form alert info">We ask researchers to please come to campus for their searches whenever possible. The Archives staff is happy to do a limited amount of research as a public service to researchers unable to come to campus. However, please be aware that the Archives cannot undertake research projects requiring more than three hours.</p>
 										<p class="form"><input class="submit full" type="submit" name="submit" value="Send Request" tabindex="11" ></p>
 									</form>
