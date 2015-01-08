@@ -22,7 +22,8 @@ get_header(); ?>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', 'search' ); ?>
+               <?php if (get_post_type() == 'post') { /* Only display BLOG POSTS */ ?>    
+                  <?php get_template_part( 'content', 'search' ); }?>
 
 				<?php endwhile; ?>
 

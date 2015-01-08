@@ -127,6 +127,15 @@ add_action('before_sidebar', 'welshimer2013_before_sidebar');
 // Stop WP from inserting <p>'s and <br>'s (dbaker)
 remove_filter('the_content', 'wpautop');
 
+// Add <p>'s back to blog posts (1/2/15)
+function keep_wpautop_on_posts($content) {
+	if(get_post_type()=='post')
+	    return wpautop($content);
+	else
+	 return $content;
+}
+add_filter('the_content','keep_wpautop_on_posts');
+
 // Remove admin bar on front-end for all users - dbaker 10-15-14
-show_admin_bar(false);
+//show_admin_bar(false);
 ?>

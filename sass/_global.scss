@@ -3,7 +3,7 @@
  * ---------------------------------------------------------------------------*/
 
 
-body{}
+body{font-family: $font-default-family;}
 
 
 /* Headings */
@@ -28,7 +28,7 @@ h3 {
 
 h4 {
    font-weight:bold;
-   font-style:italic;
+   /*font-style:italic;*/
 }
 
 .entry-title {

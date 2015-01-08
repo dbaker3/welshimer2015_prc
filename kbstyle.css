@@ -1,8 +1,20 @@
+html {
+   border:none;
+   margin-top: 0 !important;
+}
+
+#mobile-menu-wrapper {
+   border: none;
+}
 
 body {
    background-image: none;
    max-width: none;
    
+}
+
+#wpadminbar {
+   display: none;
 }
 
 a {
@@ -156,18 +168,35 @@ code {
 
 
 @media all and (min-width: 800px) {
+   html {
+      margin-top: 32px !important;
+      border: none;
+   }
+   
+   #wpadminbar {
+      display: block;
+      background: #Ec3B9F;
+   }
+
+   #wpadminbar ul#wp-admin-bar-root-default > li {
+      display: none;
+   }
+
    .milligan-logo { 
-      margin: -0.9em 20px 0px;
+      /* margin: -1.5em 20px 0px; */
+      position: absolute;
+      top: -1.7em;
+      z-index: 999999;
       opacity 0.75;
       font: 3em "open sans";
    }
    
    #primary-menu #topbar {
-      top: 4.3em;
+      top: 3.3em;
    }
 
    #primary-menu .main-navigation {
-      top: 4.3em;
+      top: 3.3em;
    }
    
    .site-header {
@@ -189,6 +218,10 @@ code {
    
    #menu-secondary a {
       color: #fff;
+   }
+   
+   .secondary-menu-main {
+      display: none;
    }
 }
 

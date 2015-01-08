@@ -1,0 +1,162 @@
+/* -----------------------------------------------------------------------------
+ *                                    Blog
+ * ---------------------------------------------------------------------------*/
+
+#blog-head {
+   background: url("http://library.milligan.edu/wp-content/uploads/2015/01/cropped-bookslice3.jpg");
+   font-family: $font-default-family;
+   color: white;
+   @include text-shadow(0 0 5px #000);
+   margin: 1em;
+   padding: 0 1em;
+   
+   h1 {
+      font-size: 3em;
+   }
+
+   p {
+      font-size: 1.4em;
+   }
+   
+  
+}
+
+#blog-sidebar{
+   display: none;
+   @media all and (min-width:800px) {
+      display: block;
+      font-family: $font-default-family;
+      position: absolute;
+      top: 25em;
+      right: 33em;
+      width: 15%;
+      padding: 1em;
+
+      #blog-search {
+         input {
+            border: 1px solid black;
+            padding: 0.25em;
+            width: 100%;
+            margin: 0 0 1em 0;
+            background: $milgray;
+            @include border-radius();
+         }
+      } 
+   
+      #blog-recent {
+         margin-left: 1.5em;     
+         font-size: 1.1em;
+      }
+   
+      #blog-archives {
+         border: 1px solid black;
+         padding: 0.25em;
+         width: 100%;
+         background: $milgray;
+         @include border-radius();
+         margin: 0 0 1em 0;
+      }
+      
+      #blog-categories {
+         border: 1px solid black;
+         padding: 0.25em;
+         width: 100%;
+         background: $milgray;
+         @include border-radius();
+         margin: 0 0 1em 0;
+      }
+   }
+}
+
+#blog-content {
+  @media all and (min-width:800px) {
+      width: 78%;
+   }
+}
+
+.post {
+   font-family: $font-default-family;
+   font-size: ($font-default-size * 0.9);
+   margin: 1.5em;
+}
+
+#nav-above {
+   display: none;
+}
+
+#nav-below {
+   font-family: $font-default-family;
+   font-size: ($font-default-size * 0.7);
+}
+ 
+.post-navigation {
+   font-family: $font-default-family;
+   font-size: ($font-default-size * 0.7);   
+   padding: 1em;
+}
+ 
+.post .entry-content {
+   margin-top: 1em;
+}
+
+.post .entry-meta {
+   font-size: ($font-default-size * 0.5);
+}
+
+.post .entry-title a {
+   text-decoration: none;
+}
+
+.post footer.entry-meta {
+   margin-top: 1em;
+}
+
+#comments {
+   margin: 1em 1em 3em 1em;
+   border-top: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+   padding: 2em;
+   font-size: 1.2em;
+
+   .avatar {
+      display: none;
+   }
+   
+   .comment {
+      padding: 0.1em;
+      margin: 0.5em;
+      background: lighten($milgray, 5%);
+      @include border-radius();
+   }
+   
+}
+
+#respond {
+   label {
+      display: block;
+   }
+   
+   textarea {
+      border: 1px solid #ccc;
+      width: 100%;
+      @include border-radius();
+   }
+   
+   code {
+      font-size: 1em;
+   }
+   
+   input {
+      border: 1px solid #ccc;
+      @include border-radius();
+      padding: 0.25em;
+      &#submit {
+         border: 1px solid #000;
+         &:hover {
+            background: darken($milgray, 20%);
+            cursor: pointer;
+         }
+      }
+   }
+}
+

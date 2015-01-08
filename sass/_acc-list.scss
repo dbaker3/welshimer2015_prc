@@ -82,6 +82,9 @@ div.acc-list {
       li {
          padding: 0;
       }
+      a {
+         text-decoration:underline;
+      }     
    }
    div.open-item > a:after {
       content: none !important;
