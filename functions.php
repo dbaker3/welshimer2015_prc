@@ -106,8 +106,8 @@ add_action( 'widgets_init', 'welshimer2013_widgets_init' );
 function welshimer2013_scripts() {
 	global $post;
 
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
-	wp_enqueue_script( 'js-min', get_template_directory_uri() . '/js/js-min.js', array( 'jquery' ), '20120906', true );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), false, filemtime(get_template_directory() . '/style.css'), 'all' );
+	wp_enqueue_script( 'js-min', get_template_directory_uri() . '/js/js-min.js', array( 'jquery' ), filemtime(get_template_directory() . '/js/js-min.js'), true );
 
 // These are included in js-min.js but are retained for testing purposes
 	//wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120626', true );
