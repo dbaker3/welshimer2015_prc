@@ -71,7 +71,7 @@
     &:focus {background-color:$white;}
 }
 
-.laylah { /* This is a style for hiding text off the screen */
+.laylah, .comment-form-url { /* This is a style for hiding text off the screen - honeypots */
   left: -9999px;
   position: absolute;
   top: -9999px;

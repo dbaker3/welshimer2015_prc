@@ -90,7 +90,8 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 		}
 
 		if(!isset($hasError)) {
-			$emailTo = 'mc_ill@milligan.edu';
+         // email request to ILL account
+         $emailTo = 'mc_ill@milligan.edu';
 			$subject = 'Interlibrary Loan Request';
 			$body = '<h4>ILL Request made ' . date("F j, Y, g:i a") .'</h4>';
 				$body .= '<p><strong>Requested by: </strong>' . $patron_name . ' [' . $patron_email . ']</p>';
@@ -102,12 +103,19 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 				$body .= '<p><strong>Issue: </strong>' . $journal_issue . '</p>';
 				$body .= '<p><strong>Pages: </strong>' . $article_pages . '</p>';
 				$body .= '<p><strong>Special Instructions: </strong></p><p>' . $patron_message . '</p>';
-
 			$headers[] = 'From: ILL Webform <mc_ill@milligan.edu>';
 			$headers[] = 'Reply-To: ' . $patron_email;
 			$headers[] = 'content-type: text/html';
-			
 			wp_mail( $emailTo, $subject, $body, $headers );
+         
+         // email confirmation to patron
+         $emailTo = $patron_email;
+         $subject = 'Interlibrary Loan Request Confirmation';
+         $headers = '';
+         $headers[] = 'From: ILL Webform <mc_ill@milligan.edu>';
+			$headers[] = 'Reply-To: mc_ill@milligan.edu';
+			$headers[] = 'content-type: text/html';
+         wp_mail( $emailTo, $subject, $body, $headers );
 			
 			$emailSent = true;
 			}

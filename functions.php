@@ -124,6 +124,7 @@ function welshimer2013_before_sidebar() {
 }
 add_action('before_sidebar', 'welshimer2013_before_sidebar');
 
+
 // Stop WP from inserting <p>'s and <br>'s (dbaker)
 remove_filter('the_content', 'wpautop');
 
@@ -136,6 +137,20 @@ function keep_wpautop_on_posts($content) {
 }
 add_filter('the_content','keep_wpautop_on_posts');
 
-// Remove admin bar on front-end for all users - dbaker 10-15-14
-//show_admin_bar(false);
+
+// Convert 'Website' field on comment form to a honeypot - 1/9/15 dbaker
+function comment_honeypot_check() {
+   if(trim($_POST['url']) !== '') {
+			wp_die('You may not be human, please try again without entering text into the <strong>Website</strong> field.', 400);
+		}
+}
+function comment_honeypot_field_mod($fields) {
+   $fields['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
+                    '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+                    '" size="30" tabindex="999" /></p>';
+    return $fields;
+}
+add_action('pre_comment_on_post', 'comment_honeypot_check');
+add_filter('comment_form_default_fields', 'comment_honeypot_field_mod');
+
 ?>
