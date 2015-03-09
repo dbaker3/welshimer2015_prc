@@ -6,7 +6,8 @@
  * @since welshimer2013 1.0
  */
 
-get_header(); ?>
+get_header();
+include TEMPLATEPATH."/inc/blog-sidebar.php" ?>
 
 		<section id="primary" class="site-content">
 			<div id="content" role="main">
@@ -38,5 +39,4 @@ get_header(); ?>
 			</div><!-- #content -->
 		</section><!-- #primary .site-content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

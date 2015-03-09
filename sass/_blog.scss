@@ -24,10 +24,11 @@
       display: block;
       font-family: $font-default-family;
       position: absolute;
-      top: 25em;
-      right: 33em;
-      width: 15%;
+      top: 23em;
+      right: 0;
+      width: 20%;
       padding: 1em;
+      font-size: 110%;
 
       #blog-search {
          input {
@@ -67,7 +68,7 @@
 
 #blog-content {
   @media all and (min-width:800px) {
-      width: 78%;
+      width: 100%;
    }
 }
 
