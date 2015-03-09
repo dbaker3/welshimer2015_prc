@@ -24,11 +24,16 @@
       display: block;
       font-family: $font-default-family;
       position: absolute;
-      top: 18em;
+      top: 16em;
       right: 6em;
       width: 20%;
       padding: 1em;
       font-size: 110%;
+
+      #sidebar-logo img {
+        width: 100%; 
+        margin-bottom: 1em;
+      }
 
       #blog-search {
          input {

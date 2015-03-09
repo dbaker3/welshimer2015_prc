@@ -1,4 +1,7 @@
          <div id="blog-sidebar">
+            <div id="sidebar-logo">
+               <img alt="It's your library and so much more!" src="http://library.milligan.edu/wp-content/uploads/2014/10/itsyourlibrary600.png" />
+            </div>
             <h4>Blog Search</h4>
             <form id="blog-search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
                <label for="s" class="assistive-text"><?php _e( 'Search', 'welshimer2013' ); ?></label>
