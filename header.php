@@ -88,9 +88,9 @@
       } ?>
 			<div class="social-menu">
 				<ul>
-					<li><a href="http://library.milligan.edu/blog"></a></li><!--Library Blog-->
+					<li><a href="https://library.milligan.edu/blog"></a></li><!--Library Blog-->
 					<li><a href="https://twitter.com/intent/user?screen_name=MilliganLibrary" target="_blank"></a></li><!--Twitter-->
-					<li><a href="http://www.facebook.com/milligancollegelibrary" target="_blank"></a></li><!--Facebook-->
+					<li><a href="https://www.facebook.com/milligancollegelibrary" target="_blank"></a></li><!--Facebook-->
 				</ul>
 			</div>
 		</nav>
@@ -104,7 +104,7 @@
             <h4 class="milligan-logo"><a href="<?php echo home_url( '/kb' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library KB</a></h4>
          <?php }
          else { ?>
-            <h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="http://library.milligan.edu/wp-content/uploads/images/wordmark.png" alt="Milligan" /></a></h4>
+            <h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="https://library.milligan.edu/wp-content/uploads/images/wordmark.png" alt="Milligan" /></a></h4>
             <h4 class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library</a></h4>
             <!--<img src="<?php bloginfo( 'template_url' ); ?>/images/pr_compliant.png" style="position:absolute;left:-13em;top:0em;width:134px;" />-->
          <?php } ?>
