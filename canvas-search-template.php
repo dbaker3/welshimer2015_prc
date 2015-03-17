@@ -1,29 +1,40 @@
 <?php
 /**
-Template Name: Canvas Searchbox
- */
+Template Name: Canvas Searchbox 
+*/
+
+
+get_header();
+wp_dequeue_script("iframenonewtab");
 ?>
-<html>
-   <head>
-      <script type='text/javascript' src='https://library.milligan.edu/wp-includes/js/jquery/jquery.js'></script>
-      <link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1.1' type='text/css' media='all' />
-      <script type='text/javascript' src='https://library.milligan.edu/wp-content/plugins/phw-searchbox/searchbox.js'></script>
-      <script type='text/javascript' src='https://library.milligan.edu/wp-content/plugins/phw-searchbox/topics.js'></script>
-      <link rel='stylesheet' id='searchboxcss-css'  href='https://library.milligan.edu/wp-content/plugins/phw-searchbox/searchbox.css' type='text/css' media='all' />
-      <script type='text/javascript' src='https://support.ebscohost.com/eit/scripts/ebscohostsearch.js'></script>
-      <style>
-          html {font-family:"Open Sans";}
-          .entry-title {display:none;}
-          .tab-links li {width:16.61%;}
-      </style>  
-   </head>
-   <body>
+
+<style>
+   html {margin-top: 0 !important;}
+   body {background-image: none;}
+   #wpadminbar, #masthead, #primary-menu, .entry-title, #mobile-menu-wrapper, footer {display:none !important;}
+   .site-content {min-height: 0 !important};
+</style>
+
       <div id="primary" class="site-content">
-         <div id="content" role="main">
-            <?php while ( have_posts() ) : the_post(); ?>
-               <?php get_template_part( 'content', 'page' ); ?>
-            <?php endwhile; // end of the loop. ?>
-         </div><!-- #content -->
-      </div><!-- #primary .site-content -->
-   </body>
-</html>
+			<div id="content" role="main">
+
+				<?php while ( have_posts() ) : the_post(); ?>
+
+				<article id="post-<?php the_ID(); ?>" <?php post_class('body-text'); ?>>
+					<header class="entry-header">
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					</header><!-- .entry-header -->
+
+					<div class="entry-content">
+
+						<?php the_content(); ?>
+						<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'welshimer2013' ), 'after' => '</div>' ) ); ?>
+						<?php edit_post_link( __( 'Edit', 'welshimer2013' ), '<span class="edit-link">', '</span>' ); ?>
+					</div><!-- .entry-content -->
+				</article><!-- #post-<?php the_ID(); ?> -->
+
+				<?php endwhile; // end of the loop. ?>
+
+			</div><!-- #content -->
+		</div><!-- #primary .site-content -->
+<?php get_footer() ?>
