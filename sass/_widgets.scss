@@ -158,7 +158,7 @@
    }
 }
 
-/* Reservation */
+/* Reservation text widget*/
 .reserve-button {
    position:relative;
    overflow:auto;
@@ -167,7 +167,12 @@
    border:solid 1px $grey-80;
    color:$white;
    margin:0.25em 0;
-   padding:0.5em 2em 0.5em 0.5em;
+   padding:0.4em 2em;
    width:100%;
    cursor:pointer;
+}
+
+.reserve-title {
+   position:relative;
+   left:-1.25em
 }
