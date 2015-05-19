@@ -157,3 +157,17 @@
       color:$grey;
    }
 }
+
+/* Reservation */
+.reserve-button {
+   position:relative;
+   overflow:auto;
+   @include border-radius(2px);
+   background-color:$blue;
+   border:solid 1px $grey-80;
+   color:$white;
+   margin:0.25em 0;
+   padding:0.5em 2em 0.5em 0.5em;
+   width:100%;
+   cursor:pointer;
+}
