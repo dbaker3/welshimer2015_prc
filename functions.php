@@ -153,4 +153,8 @@ function comment_honeypot_field_mod($fields) {
 add_action('pre_comment_on_post', 'comment_honeypot_check');
 add_filter('comment_form_default_fields', 'comment_honeypot_field_mod');
 
+
+// redirect logins to homepage
+add_filter( 'login_redirect', create_function( '$url,$query,$user', 'return home_url();' ), 10, 3 );
+
 ?>
