@@ -29,7 +29,7 @@ wp_dequeue_script("iframenonewtab");
 
 						<?php the_content(); ?>
 						
-						<div style="float: right; position: relative; top: -12em; right: -12em;">
+						<div style="float: right; position: relative; top: -12em; right: 14em;">
 							<h1 class="chat-icon">Need Help?</h1>
 							<div class="needs-js">
 								Chat service is unavailable. Please ensure that <a href="http://enable-javascript.com/">Javascript is enabled</a>
