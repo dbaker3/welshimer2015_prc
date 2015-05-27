@@ -145,7 +145,7 @@ body {
    top:10em;
    right:-20.5em;
    @include border-radius();
-   z-index:99;
+   z-index:2;
    transition: right linear 0.25s;
    border: 1px solid $black;
    border-right: none;

@@ -54,6 +54,12 @@ adapt(device); //Do first adapt on load
 		jQuery( '.sub-menu' ).removeClass('display-toggle');
 		jQuery( '.menu-item' ).removeClass('open-item');
     jQuery("html").scrollTop(0);
+    if (jQuery('.main-navigation').hasClass('display-toggle')) {
+      jQuery('html').css('overflow-y', 'hidden'); // Remove main scrollbar
+    } 
+    else {
+      jQuery('html').css('overflow-y', 'scroll');
+    }
 		}
 	});
 
