@@ -111,6 +111,8 @@
       width: 100%;
       height: 100%;
       top: 46px;
+      overflow-y: auto;
+      background-color: $grey;
    }
    .menu-icon {
       position:relative;
