@@ -8,7 +8,12 @@
  * @package welshimer2013
  * @since welshimer2013 1.0
  */
-?><!DOCTYPE html>
+
+if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
+	header('X-UA-Compatible: IE=edge'); 
+} ?>
+
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
