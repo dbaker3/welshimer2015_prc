@@ -115,6 +115,11 @@ jQuery( '.acc-list-category' ).click( function() {
 		jQuery( this ).parent().children('.acc-sublist').toggleClass('hidden');
 		jQuery( this ).parent().toggleClass('open-item');
 	});
+	
+/* acc-sublist toggle when acc-list-expand button clicked */
+jQuery('.acc-list-expand').click(function() {
+  jQuery('.acc-sublist').toggleClass('hidden')
+});
 
 function getDeviceSize(){
 	tablet = matchMedia('(min-width:' + tabletWidth + ')');
