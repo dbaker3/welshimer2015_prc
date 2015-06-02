@@ -8,14 +8,12 @@
  * @package welshimer2013
  * @since welshimer2013 1.0
  */
-
-if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
-	header('X-UA-Compatible: IE=edge'); 
-} ?>
+?>
 
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0" />
 <title><?php

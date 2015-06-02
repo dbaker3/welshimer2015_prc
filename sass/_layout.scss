@@ -166,12 +166,11 @@ body {
 .side-expand {
    display:block; visibility:visible;
    position:absolute;
-   top:5%;
+   top:0;
    left:0;
-   width:1.3em;
-   height:90%;
-   background-color: $white; //$dark-grey;
-   //border-right:solid 1px darken($dark-grey, 5%);
+   width:1.4em;
+   height:100%;
+   background-color: transparent;
    z-index:0;
    &:after {
       font-family:icon-font;
@@ -179,7 +178,7 @@ body {
       color:$black;
       content: "\e00e";
       position:absolute;
-      top:49%;
+      top:2%;
       left:5px;
       vertical-align:center;
       cursor:pointer;
