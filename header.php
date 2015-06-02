@@ -107,7 +107,7 @@
             <h4 class="milligan-logo"><a href="<?php echo home_url( '/kb' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library KB</a></h4>
          <?php }
          else { ?>
-            <h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="https://library.milligan.edu/wp-content/uploads/images/wordmark-lossy.png" alt="Milligan" /></a></h4>
+            <h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/milligan.png" alt="Milligan" /></a></h4>
             <h4 class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library</a></h4>
             <!--<img src="<?php bloginfo( 'template_url' ); ?>/images/pr_compliant.png" style="position:absolute;left:-13em;top:0em;width:134px;" />-->
          <?php } ?>
