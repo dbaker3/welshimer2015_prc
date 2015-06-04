@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
 
 
-//**************** matchMedia() polyfill *****************//
+/*--------------- matchMedia() polyfill ----------------*/
 
 window.matchMedia = window.matchMedia || (function(doc, undefined){
 
@@ -30,7 +30,7 @@ window.matchMedia = window.matchMedia || (function(doc, undefined){
 
 }(document));
 
-// ************** Adaptive Menu Scripts****************//
+/*------------- Adaptive Menu Scripts ---------------*/
 	var tabletWidth = '600px';
 	var desktopWidth = '800px';
 	var tablet = matchMedia('(min-width:' + tabletWidth + ')');
@@ -142,7 +142,7 @@ function adapt(deviceVar){ //console.log(deviceVar);
 		jQuery('.side-expand-open').removeClass('side-expand-open')
 	}
 }
-//************* SELECT MENU SCRIPTS ******************//
+/*------------ SELECT MENU SCRIPTS -----------------*/
 
 	jQuery(".secondary-menu-main a").each(function() {
 	 var el = jQuery(this);
@@ -156,7 +156,7 @@ function adapt(deviceVar){ //console.log(deviceVar);
 	  window.location = jQuery(this).find("option:selected").val();
 	});
 
-  //******************Relative dates***********************//
+  /*----------------- Relative dates ----------------------*/
 
   jQuery('a.timestamp').timeago()
 
@@ -175,7 +175,7 @@ function adapt(deviceVar){ //console.log(deviceVar);
   
   }); /* end of jQuery(document).ready */
 
-//********************Chat Service JS*********************//
+/*------------------- Chat Service JS --------------------*/
   (function() {
     var x = document.createElement("script"); x.type = "text/javascript"; x.async = true;
     x.src = (document.location.protocol === "https:" ? "https://" : "http://") + "libraryh3lp.com/js/libraryh3lp.js?3752";
