@@ -8,15 +8,26 @@
 }
 
 
-/* Today's Hours */
-
-.clock-icon {
-   &:before {
-   margin-right:0.5em;
-   font-family:icon-font;
-   content:"\e600";
+.widget_todays_hours_widget { 
+   margin-left: 1.5em;
+   .widget-title {
+      margin-left: -1.2em;
+      &:before {
+      	font-family: icon-font;
+	      content: '\e600';
+	      margin-right: 0.5em;
+      }
+   }
+   .schedname {
+	   margin-top:0.25em;
+	   font-weight: bold;
+   }
+   .todays-hours-link {
+   	margin-top:0.25em;
    }
 }
+
+
 
 /* Search widget */
 
