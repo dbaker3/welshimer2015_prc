@@ -283,12 +283,42 @@ body {
 .profile {
    display:block;
    margin-top:2em;
-}
-   
-.profile p { 
-   margin-bottom:1em;
-}
+   border-top: 1px solid #ccc;
+   padding-top: 1em;
 
-.profile img {
-   display:block;
+   p { 
+      margin-bottom:1em;
+   }
+
+   img {
+      display:block;
+      float: left;
+      margin: 0 1em 1em 0;
+      border-radius: 4px;
+   }
+
+   ul {
+      margin-left: 0;
+      list-style: none;
+   }
+
+   .phone-icon a {
+      text-decoration: none;
+   }
+
+   .phone-icon:before {
+      font-family: "icomoon";
+      content: "\e014";
+      margin-right: 0.5em;
+   }
+
+   .email-icon:before {
+      font-family: "icomoon";
+      content: "\e002";
+      margin-right: 0.5em;
+   }
+
+   h2, h4 {
+      clear: none;
+   }
 }
