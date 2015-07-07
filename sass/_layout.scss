@@ -308,7 +308,7 @@ body {
       display:block;
       float: left;
       margin: 0 1em 1em 0;
-      border-radius: 4px;
+      @include border-radius(4px);
    }
 
    ul {
