@@ -62,7 +62,7 @@ body {
    position:relative;
    font-family: "open sans", sans-serif;
    font-style:normal;
-   font-size:1.8em;
+   font-size:1.7em;
    color:$black;
    margin:-0.1em 0px 0px 0.2em;
    float:left;
@@ -73,6 +73,20 @@ body {
    @media all and (min-width:800px) {
       font-size:2.5em;
       margin: 0em 0 0 1.2em;
+   }
+}
+
+#subtitle-desktop {
+   display: none;
+   @media all and (min-width:700px) {
+      display: block;
+   }
+}
+
+#subtitle-mobile {
+   display: block;
+   @media all and (min-width:700px) {
+      display: none;
    }
 }
 
