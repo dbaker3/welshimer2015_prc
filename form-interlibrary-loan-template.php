@@ -7,6 +7,22 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 ?>
 
 <?php
+
+	//On opening from EDS
+	if(isset($_GET['sendto'])) {
+		$article_title = trim($_GET['ti']);
+		$article_author = trim($_GET['au']);
+		$article_journal = trim($_GET['JN']);
+		$journal_date = trim($_GET['Dt']);
+		$journal_volume = trim($_GET['vi']);
+		$journal_issue = trim($_GET['ip']);
+		$article_pages = trim($_GET['pg']);
+		$issn = trim($_GET['IS']);
+		$isbn = trim($_GET['IB']);
+		$article_db = trim($_GET['db']);
+		$item_number = trim($_GET['an']);
+	}
+
 	//If the form is submitted
 	if(isset($_POST['submit'])) {
 	
@@ -61,6 +77,10 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 		} else {
 			$journal_date = trim($_POST['journal_date']);
 		}
+	//Autofill entered ISSN
+		$issn = trim($_POST['issn']);
+	//Autofill entered ISSN
+		$isbn = trim($_POST['isbn']);
 	//Check to make sure that the volume field is not empty
 		if(trim($_POST['journal_volume']) === '') {
 			$volumeError = 'You must enter a volume number (enter N/A if none is given).';
@@ -88,6 +108,10 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 		} else {
 			$patron_message = trim($_POST['patron_message']);
 		}
+		
+	//Hidden values from EDS
+		$article_db = trim($_POST['db']);
+		$item_number = trim($_POST['an']);
 
 		if(!isset($hasError)) {
          // email request to ILL account
@@ -97,12 +121,16 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 				$body .= '<p><strong>Requested by: </strong>' . $patron_name . ' [' . $patron_email . ']</p>';
 				$body .= '<p><strong>Title: </strong>' . $article_title . '</p>';
 				$body .= '<p><strong>Author: </strong>' . $article_author . '</p>';
-				$body .= '<p><strong>Journal: </strong>' . $article_journal . '</p>';
+				$body .= '<p><strong>Source: </strong>' . $article_journal . '</p>';
 				$body .= '<p><strong>Date: </strong>' . $journal_date . '</p>';
+				$body .= '<p><strong>ISSN: </strong' . $issn . '</p>';
+				$body .= '<p><strong>ISBN: </strong' . $isbn . '</p>';
 				$body .= '<p><strong>Vol: </strong>' . $journal_volume . '</p>';
 				$body .= '<p><strong>Issue: </strong>' . $journal_issue . '</p>';
 				$body .= '<p><strong>Pages: </strong>' . $article_pages . '</p>';
 				$body .= '<p><strong>Special Instructions: </strong></p><p>' . $patron_message . '</p>';
+				$body .= '<p><strong>Database: </strong>' . $article_db . '</p>';
+				$body .= '<p><strong>Item Number: </strong>' . $item_number . '</p>';
 			$headers[] = 'From: ILL Webform <mc_ill@milligan.edu>';
 			$headers[] = 'Reply-To: ' . $patron_email;
 			$headers[] = 'content-type: text/html';
@@ -139,7 +167,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 								<?php if(isset($emailSent) && $emailSent == true): ?>
 
 									<div class="alert success">
-										<p>Your ILL request has been successfully submitted. You will be notified via email when your material is available. Any additional questions or comments should be directed to <a href="mailto:mc_ill@milligan.edu">mc_ill@milligan.edu</a>.</p>
+										<p>Your ILL request has been successfully submitted. You will be notified via email when your material is available. Any additional questions or comments should be directed to Anne Osborne, User Services Librarian, at <a href="mailto:aerosborne@milligan.edu">aerosborne@milligan.edu</a> or 423-461-8495.</p>
 										<p><a class="submit full"href="<?php the_permalink() ?>">Submit Another Request</a>
 										</div>
 
@@ -165,11 +193,13 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 									<form action="<?php the_permalink(); ?>" method="post">
 										<p class="form"><label class="label" for="patron_name">Name:* </label><input tabindex="1" class="text three-fourths<?php if(isset($nameError)){echo ' fail';}?>" type="text" id="patron_name" name="patron_name" value="<?php if(isset($patron_name)){echo $patron_name;} ?>"/></p>
 										<p class="form"><label class="label" for="patron_email">Milligan Email:* </label><input tabindex="2" class="text three-fourths<?php if(isset($emailError)){echo ' fail';}?>" type="text" id="patron_email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
-										<p class="form"><label class="label" for="article_title">Article Title:* </label><input tabindex="3" class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
-										<p class="form"><label class="label" for="article_author">Article Author:* </label><input tabindex="4" class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
-										<p class="form"><label class="label" for="article_journal">Journal Title:* </label><input tabindex="5" class="text<?php if(isset($journalError)){echo ' fail';}?>" type="text" id="article_journal" name="article_journal" value="<?php if(isset($article_journal)){echo $article_journal;} ?>" /></p>
+										<p class="form"><label class="label" for="article_title">Title:* </label><input tabindex="3" class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
+										<p class="form"><label class="label" for="article_author">Author:* </label><input tabindex="4" class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
+										<p class="form"><label class="label" for="article_journal">Source:* </label><input tabindex="5" class="text<?php if(isset($journalError)){echo ' fail';}?>" type="text" id="article_journal" name="article_journal" value="<?php if(isset($article_journal)){echo $article_journal;} ?>" /></p>
 										<p class="laylah"><label for="laylah">Required</label><input type="text" id="laylah" name="laylah" tabindex="999" /></p>
 										<p class="form"><label class="label" for="journal_date">Publication Date:* </label><input tabindex="6" class="text half<?php if(isset($dateError)){echo ' fail';}?>" type="text" id="journal_date" name="journal_date" value="<?php if(isset($journal_date)){echo $journal_date;} ?>" /></p>
+										<p class="form"><label class="label" for="issn">ISSN: </label><input tabindex="" class="text half" type="text" id="issn" name="issn" value="<?php if(isset($issn)){echo $issn;} ?>" /></p>
+										<p class="form"><label class="label" for="isbn">ISBN: </label><input tabindex="" class="text half" type="text" id="isbn" name="isbn" value="<?php if(isset($isbn)){echo $isbn;} ?>" /></p>
 										<p class="form"><label class="label" for="journal_volume">Volume:* </label><input tabindex="7" class="text half<?php if(isset($volumeError)){echo ' fail';}?>" type="text" id="journal_volume" name="journal_volume" value="<?php if(isset($journal_volume)){echo $journal_volume;} ?>" /></p>
 										<p class="form"><label class="label" for="journal_issue">Issue/Number:* </label><input tabindex="8" class="text half<?php if(isset($issueError)){echo ' fail';}?>" type="text" id="journal_issue" name="journal_issue" value="<?php if(isset($journal_issue)){echo $journal_issue;} ?>" /></p>
 										<p class="form"><label class="label" for="article_pages">Inclusive Pages:* </label><input tabindex="9" class="text half<?php if(isset($pagesError)){echo ' fail';}?>" type="text" id="article_pages" name="article_pages" value="<?php if(isset($article_pages)){echo $article_pages;} ?>" /></p>
