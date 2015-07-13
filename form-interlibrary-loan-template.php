@@ -8,7 +8,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 
 <?php
 
-	//On opening from EDS
+	//If page loaded from EBSCO Discovery Service ILL request
 	if(isset($_GET['sendto'])) {
 		$article_title = trim($_GET['ti']);
 		$article_author = trim($_GET['au']);
@@ -31,13 +31,20 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 			$honeypotError = 'You may not be human, please try again.';
 			$hasError = true;
 		}
-	//Check to make sure that the name field is not empty
-		if(trim($_POST['patron_name']) === '') {
-			$nameError = 'You must enter your name.';
+	//Check to make sure that the firstname field is not empty
+		if(trim($_POST['patron_firstname']) === '') {
+			$firstNameError = 'You must enter your first name.';
 			$hasError = true;
 		} else {
-			$patron_name = trim($_POST['patron_name']);
+			$patron_firstname = trim($_POST['patron_firstname']);
 		}
+	//Check to make sure that the lastname field is not empty
+		if(trim($_POST['patron_lastname']) === '') {
+			$lastNameError = 'You must enter your last name.';
+			$hasError = true;
+		} else {
+			$patron_lastname = trim($_POST['patron_lastname']);
+		}	
 	//Check to make sure sure that a valid email address is submitted
 		if(trim($_POST['patron_email']) === '') {
 			$emailError = 'You must enter your email address.';
@@ -47,6 +54,22 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 			$hasError = true;
 		} else {
 			$patron_email = strtolower(trim($_POST['patron_email']));
+		}
+	// Get phone
+		$patron_phone = trim($_POST['patron_phone']);
+	//Check to make sure program selected
+		if(trim($_POST['patron_program']) === '') {
+			$studyError = 'You must select a program.';
+			$hasError = true;
+		} else {
+			$patron_program = trim($_POST['patron_program']);
+		}
+	//Check to make sure pickup location selected
+		if(trim($_POST['pickup_location']) === '') {
+			$pickupError = 'You must select a pickup location.';
+			$hasError = true;
+		} else {
+			$pickup_location = trim($_POST['pickup_location']);
 		}
 	//Check to make sure that the title field is not empty
 		if(trim($_POST['article_title']) === '') {
@@ -81,27 +104,12 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 		$issn = trim($_POST['issn']);
 	//Autofill entered ISSN
 		$isbn = trim($_POST['isbn']);
-	//Check to make sure that the volume field is not empty
-		if(trim($_POST['journal_volume']) === '') {
-			$volumeError = 'You must enter a volume number (enter N/A if none is given).';
-			$hasError = true;
-		} else {
-			$journal_volume = trim($_POST['journal_volume']);
-		}
-	//Check to make sure that the issue field is not empty
-		if(trim($_POST['journal_issue']) === '') {
-			$issueError = 'You must enter an issue number (enter N/A if none is given).';
-			$hasError = true;
-		} else {
-			$journal_issue = trim($_POST['journal_issue']);
-		}
-	//Check to make sure that the page field is not empty
-		if(trim($_POST['article_pages']) === '') {
-			$pagesError = 'You must include page numbers.';
-			$hasError = true;
-		} else {
-			$article_pages = trim($_POST['article_pages']);
-		}
+	//Autofill entered Volume
+		$journal_volume = trim($_POST['journal_volume']);
+	//Autofill entered Issue
+		$journal_issue = trim($_POST['journal_issue']);
+	//Autofill entered Page Range
+		$article_pages = trim($_POST['article_pages']);
 	//Added validation structure to messge field, in case it will ever be required
 		if(trim($_POST['patron_message']) === '') {
 			$patron_message = trim($_POST['patron_message']);
@@ -109,16 +117,26 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 			$patron_message = trim($_POST['patron_message']);
 		}
 		
-	//Hidden values from EDS
+	//Autofill Hidden values sent from EDS
 		$article_db = trim($_POST['db']);
 		$item_number = trim($_POST['an']);
 
 		if(!isset($hasError)) {
-         // email request to ILL account
-         $emailTo = 'mc_ill@milligan.edu';
+        // email request to ILL account
+        	if ($patron_program == "Graduate - Seminary") {
+	    		$emailTo = 'SEArndt@milligan.edu,JMWade@milligan.edu';
+        	}
+	    	else {
+	    		$emailTo = 'mc_ill@milligan.edu';
+	    	}
 			$subject = 'Interlibrary Loan Request';
 			$body = '<h4>ILL Request made ' . date("F j, Y, g:i a") .'</h4>';
-				$body .= '<p><strong>Requested by: </strong>' . $patron_name . ' [' . $patron_email . ']</p>';
+				$body .= '<p><strong>First Name: </strong>' . $patron_firstname  . '</p>';
+				$body .= '<p><strong>Last Name: </strong>' . $patron_lastname  . '</p>';
+				$body .= '<p><strong>Email: </strong>' . $patron_email . '</p>';
+				$body .= '<p><strong>Phone: </strong>' . $patron_phone . '</p>';
+				$body .= '<p><strong>Program: </strong>' . $patron_program . '</p>';
+				$body .= '<p><strong>Pickup Location: </strong>' . $pickup_location . '</p>';
 				$body .= '<p><strong>Title: </strong>' . $article_title . '</p>';
 				$body .= '<p><strong>Author: </strong>' . $article_author . '</p>';
 				$body .= '<p><strong>Source: </strong>' . $article_journal . '</p>';
@@ -175,7 +193,11 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 									<?php if(isset($hasError)): ?>
 									<div class="alert fail">
 										<?php if(isset($honeypotError)){echo $honeypotError . '<br />';}?>
+										<?php if(isset($firstNameError)){echo $firstNameError . '<br />';}?>
+										<?php if(isset($lastNameError)){echo $lastNameError . '<br />';}?>
 										<?php if(isset($emailError)){echo $emailError . '<br />';}?>
+										<?php if(isset($studyError)){echo $studyError . '<br />';}?>
+										<?php if(isset($pickupError)){echo $pickupError . '<br />';}?>
 										<?php if(isset($titleError)){echo $titleError . '<br />';}?>
 										<?php if(isset($authorError)){echo $authorError . '<br />';}?>
 										<?php if(isset($journalError)){echo $journalError . '<br />';}?>
@@ -185,26 +207,44 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										<?php if(isset($pagesError)){echo $pagesError . '<br />';}?>
 									</div>
 								<?php else: ?>
-									<div class="alert info"><p>The more information you give us, the faster we can get your materials. That said, sometimes not all of this info is readily available. If you cannot find a required piece of info, enter "N/A" or "Unknown" and we'll do our best to find the right article.</p>
+									<div class="alert info"><p>Please complete all required fields and citation information as much as possible. If not available, please indicate N/A in the field. Some information may be filled from citation information provided by the database. Complete all contact information including your Milligan College email address and indicate your preferred pickup location for physical items. The more information you give us, the faster we can get your materials. Thank you!</p>
 									</div>
 
 									<?php endif; ?>
 									<!--ILL Form -->
 									<form action="<?php the_permalink(); ?>" method="post">
-										<p class="form"><label class="label" for="patron_name">Name:* </label><input tabindex="1" class="text three-fourths<?php if(isset($nameError)){echo ' fail';}?>" type="text" id="patron_name" name="patron_name" value="<?php if(isset($patron_name)){echo $patron_name;} ?>"/></p>
-										<p class="form"><label class="label" for="patron_email">Milligan Email:* </label><input tabindex="2" class="text three-fourths<?php if(isset($emailError)){echo ' fail';}?>" type="text" id="patron_email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
-										<p class="form"><label class="label" for="article_title">Title:* </label><input tabindex="3" class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
-										<p class="form"><label class="label" for="article_author">Author:* </label><input tabindex="4" class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
-										<p class="form"><label class="label" for="article_journal">Source:* </label><input tabindex="5" class="text<?php if(isset($journalError)){echo ' fail';}?>" type="text" id="article_journal" name="article_journal" value="<?php if(isset($article_journal)){echo $article_journal;} ?>" /></p>
+										<h3>Patron Information</h3>
+										<p class="form"><label class="label" for="patron_firstname">First Name:* </label><input tabindex="1" class="text half<?php if(isset($firstNameError)){echo ' fail';}?>" type="text" id="patron_firstname" name="patron_firstname" value="<?php if(isset($patron_firstname)){echo $patron_firstname;} ?>"/></p>
+										<p class="form"><label class="label" for="patron_lastname">Last Name:* </label><input tabindex="2" class="text half<?php if(isset($lastNameError)){echo ' fail';}?>" type="text" id="patron_lastname" name="patron_lastname" value="<?php if(isset($patron_lastname)){echo $patron_lastname;} ?>"/></p>
+										<p class="form"><label class="label" for="patron_email">Milligan Email:* </label><input tabindex="3" class="text three-fourths<?php if(isset($emailError)){echo ' fail';}?>" type="text" id="patron_email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_phone">Phone: </label><input tabindex="4" class="text half" type="text" id="patron_phone" name="patron_phone" value="<?php if (isset($patron_phone)){echo $patron_phone;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_program">Program:* </label><select class="text three-fourths<?php if (isset($studyError)){echo ' fail';}?>" name="patron_program" id="patron_program">
+											<option value="">Select...</option>
+											<option value="Undergraduate"<?php if($patron_program == 'Undergraduate') echo ' selected'; ?>>Undergraduate</option>
+											<option value="Graduate - Business Administration"<?php if($patron_program == 'Graduate - Business Administration') echo ' selected'; ?>>Graduate - Business Administration</option>
+											<option value="Graduate - Counseling"<?php if($patron_program == 'Graduate - Counseling') echo ' selected'; ?>>Graduate - Counseling</option>
+											<option value="Graduate - Education"<?php if($patron_program == 'Graduate - Education') echo ' selected'; ?>>Graduate - Education</option>
+											<option value="Graduate - Occupational Therapy"<?php if($patron_program == 'Graduate - Occupational Therapy') echo ' selected'; ?>>Graduate - Occupational Therapy</option>
+											<option value="Graduate - Seminary"<?php if($patron_program == 'Graduate - Seminary') echo ' selected'; ?>>Graduate - Seminary</option>
+										</select></p>
+										<p class="form"><label class="label" for="pickup_location" >Pickup Location:* </label><select class="text three-fourths<?php if (isset($pickupError)){echo ' fail';}?>" name="pickup_location" id="pickup_location">
+											<option value="">Select...</option>
+											<option value="Welshimer Library"<?php if($pickup_location == 'Welshimer Library') echo 'selected'; ?>>Welshimer Library</option>
+											<option value="Seminary Library"<?php if($pickup_location == 'Seminary Library') echo 'selected'; ?>>Seminary Library</option>
+										</select></p>
+										<h3>Requested Item Information</h3>
+										<p class="form"><label class="label" for="article_title">Title:* </label><input tabindex="5" class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
+										<p class="form"><label class="label" for="article_author">Author:* </label><input tabindex="6" class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
+										<p class="form"><label class="label" for="article_journal">Source:* </label><input tabindex="7" class="text<?php if(isset($journalError)){echo ' fail';}?>" type="text" id="article_journal" name="article_journal" value="<?php if(isset($article_journal)){echo $article_journal;} ?>" /></p>
 										<p class="laylah"><label for="laylah">Required</label><input type="text" id="laylah" name="laylah" tabindex="999" /></p>
-										<p class="form"><label class="label" for="journal_date">Publication Date:* </label><input tabindex="6" class="text half<?php if(isset($dateError)){echo ' fail';}?>" type="text" id="journal_date" name="journal_date" value="<?php if(isset($journal_date)){echo $journal_date;} ?>" /></p>
-										<p class="form"><label class="label" for="issn">ISSN: </label><input tabindex="" class="text half" type="text" id="issn" name="issn" value="<?php if(isset($issn)){echo $issn;} ?>" /></p>
-										<p class="form"><label class="label" for="isbn">ISBN: </label><input tabindex="" class="text half" type="text" id="isbn" name="isbn" value="<?php if(isset($isbn)){echo $isbn;} ?>" /></p>
-										<p class="form"><label class="label" for="journal_volume">Volume:* </label><input tabindex="7" class="text half<?php if(isset($volumeError)){echo ' fail';}?>" type="text" id="journal_volume" name="journal_volume" value="<?php if(isset($journal_volume)){echo $journal_volume;} ?>" /></p>
-										<p class="form"><label class="label" for="journal_issue">Issue/Number:* </label><input tabindex="8" class="text half<?php if(isset($issueError)){echo ' fail';}?>" type="text" id="journal_issue" name="journal_issue" value="<?php if(isset($journal_issue)){echo $journal_issue;} ?>" /></p>
-										<p class="form"><label class="label" for="article_pages">Inclusive Pages:* </label><input tabindex="9" class="text half<?php if(isset($pagesError)){echo ' fail';}?>" type="text" id="article_pages" name="article_pages" value="<?php if(isset($article_pages)){echo $article_pages;} ?>" /></p>
-										<p class="form"><label class="label" for="patron_message">Special Instructions: </label><textarea tabindex="10" class="textarea" id="patron_message" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
-										<p class="form"><input class="submit full" type="submit" name="submit" value="Send Request" tabindex="11" ></p>
+										<p class="form"><label class="label" for="journal_date">Publication Date:* </label><input tabindex="8" class="text half<?php if(isset($dateError)){echo ' fail';}?>" type="text" id="journal_date" name="journal_date" value="<?php if(isset($journal_date)){echo $journal_date;} ?>" /></p>
+										<p class="form"><label class="label" for="issn">ISSN: </label><input tabindex="" class="text half" type="text" id="issn" name="issn" tabindex="9" value="<?php if(isset($issn)){echo $issn;} ?>" /></p>
+										<p class="form"><label class="label" for="isbn">ISBN: </label><input tabindex="" class="text half" type="text" id="isbn" name="isbn" tabindex="10" value="<?php if(isset($isbn)){echo $isbn;} ?>" /></p>
+										<p class="form"><label class="label" for="journal_volume">Volume: </label><input tabindex="11" class="text half<?php if(isset($volumeError)){echo ' fail';}?>" type="text" id="journal_volume" name="journal_volume" value="<?php if(isset($journal_volume)){echo $journal_volume;} ?>" /></p>
+										<p class="form"><label class="label" for="journal_issue">Issue/Number: </label><input tabindex="12" class="text half<?php if(isset($issueError)){echo ' fail';}?>" type="text" id="journal_issue" name="journal_issue" value="<?php if(isset($journal_issue)){echo $journal_issue;} ?>" /></p>
+										<p class="form"><label class="label" for="article_pages">Inclusive Pages: </label><input tabindex="13" class="text half<?php if(isset($pagesError)){echo ' fail';}?>" type="text" id="article_pages" name="article_pages" value="<?php if(isset($article_pages)){echo $article_pages;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_message">Special Instructions: </label><textarea tabindex="14" class="textarea" id="patron_message" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
+										<p class="form"><input class="submit full" type="submit" name="submit" value="Send Request" tabindex="15" ></p>
 									</form>
 								<?php endif; ?>
 
