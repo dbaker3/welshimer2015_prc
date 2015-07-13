@@ -108,7 +108,8 @@
          <?php }
          else { ?>
             <h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/milligan.png" alt="Milligan" /></a></h4>
-            <h4 class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library</a></h4>
+            <h4 id="subtitle-desktop" class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library &amp; Seminary Library</a></h4>
+            <h4 id="subtitle-mobile" class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer &amp; Seminary Libraries</a></h4>
             <!--<img src="<?php bloginfo( 'template_url' ); ?>/images/pr_compliant.png" style="position:absolute;left:-13em;top:0em;width:134px;" />-->
          <?php } ?>
          
