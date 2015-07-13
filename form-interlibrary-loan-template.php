@@ -207,7 +207,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										<?php if(isset($pagesError)){echo $pagesError . '<br />';}?>
 									</div>
 								<?php else: ?>
-									<div class="alert info"><p>Please complete all required fields and citation information as much as possible. If not available, please indicate N/A in the field. Some information may be filled from citation information provided by the database. Complete all contact information including your Milligan College email address and indicate your preferred pickup location for physical items. The more information you give us, the faster we can get your materials. Thank you!</p>
+									<div class="alert info"><p>Please complete all required fields and citation information. If not available, please indicate N/A in the field. Some information may be filled from citation information provided by the database. Complete all contact information including your Milligan College email address and indicate your preferred pickup location for items. Thank you!</p>
 									</div>
 
 									<?php endif; ?>
