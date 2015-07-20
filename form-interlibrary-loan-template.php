@@ -141,8 +141,8 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 				$body .= '<p><strong>Author: </strong>' . $article_author . '</p>';
 				$body .= '<p><strong>Source: </strong>' . $article_journal . '</p>';
 				$body .= '<p><strong>Date: </strong>' . $journal_date . '</p>';
-				$body .= '<p><strong>ISSN: </strong' . $issn . '</p>';
-				$body .= '<p><strong>ISBN: </strong' . $isbn . '</p>';
+				$body .= '<p><strong>ISSN: </strong>' . $issn . '</p>';
+				$body .= '<p><strong>ISBN: </strong>' . $isbn . '</p>';
 				$body .= '<p><strong>Vol: </strong>' . $journal_volume . '</p>';
 				$body .= '<p><strong>Issue: </strong>' . $journal_issue . '</p>';
 				$body .= '<p><strong>Pages: </strong>' . $article_pages . '</p>';
