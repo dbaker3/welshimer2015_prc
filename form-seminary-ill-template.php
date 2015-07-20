@@ -43,6 +43,13 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 	// Get phone
 		$patron_phone = trim($_POST['patron_phone']);
 
+	// Confirm seminary patron
+		if(trim($_POST['patron_confirm']) === ''){
+			$confirmError = 'You must confirm that you are a Seminary student or faculty member.<br>Non-seminary patrons, please request materials through <a href="http://milligan.on.worldcat.org/advancedsearch/" target="_blank">WorldCat</a>';
+			$hasError = true;
+		} else {
+			$patron_confirm = true;
+		}
 
 	//Check to make sure that the title field is not empty
 		if(trim($_POST['article_title']) === '') {
@@ -59,6 +66,8 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 			$article_author = trim($_POST['article_author']);
 		}
 
+	// Get publisher
+		if (isset($_POST['publisher'])) $publisher = trim($_POST['publisher']);
 
 	//Check to make sure that the date field is not empty
 		if(trim($_POST['journal_date']) === '') {
@@ -89,6 +98,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 				$body .= '<p><strong>Phone: </strong>' . $patron_phone . '</p>';
 				$body .= '<p><strong>Title: </strong>' . $article_title . '</p>';
 				$body .= '<p><strong>Author: </strong>' . $article_author . '</p>';
+				$body .= '<p><strong>Publisher: </strong>' . $publisher . '</p>';
 				$body .= '<p><strong>Date: </strong>' . $journal_date . '</p>';
 				$body .= '<p><strong>ISBN: </strong>' . $isbn . '</p>';
 				$body .= '<p><strong>Special Instructions: </strong></p><p>' . $patron_message . '</p>';
@@ -139,6 +149,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										<?php if(isset($firstNameError)){echo $firstNameError . '<br />';}?>
 										<?php if(isset($lastNameError)){echo $lastNameError . '<br />';}?>
 										<?php if(isset($emailError)){echo $emailError . '<br />';}?>
+										<?php if(isset($confirmError)){echo $confirmError . '<br />';}?>
 										<?php if(isset($titleError)){echo $titleError . '<br />';}?>
 										<?php if(isset($authorError)){echo $authorError . '<br />';}?>
 										<?php if(isset($dateError)){echo $dateError . '<br />';}?>
@@ -155,14 +166,16 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										<p class="form"><label class="label" for="patron_lastname">Last Name:* </label><input tabindex="2" class="text half<?php if(isset($lastNameError)){echo ' fail';}?>" type="text" id="patron_lastname" name="patron_lastname" value="<?php if(isset($patron_lastname)){echo $patron_lastname;} ?>"/></p>
 										<p class="form"><label class="label" for="patron_email">Milligan Email:* </label><input tabindex="3" class="text three-fourths<?php if(isset($emailError)){echo ' fail';}?>" type="text" id="patron_email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
 										<p class="form"><label class="label" for="patron_phone">Phone: </label><input tabindex="4" class="text half" type="text" id="patron_phone" name="patron_phone" value="<?php if (isset($patron_phone)){echo $patron_phone;} ?>" /></p>
+										<p class="form"><input type="checkbox" id="patron_confirm" name="patron_confirm" tabindex="5" value="patron_confirm" <?php if (isset($patron_confirm)){echo 'checked';}?>> <label class="<?php if (isset($confirmError)){echo 'fail';}?>" for="patron_confirm">I confirm that I am a Seminary Student or Faculty member</label></p>
 										<h3>Requested Item Information</h3>
-										<p class="form"><label class="label" for="article_title">Title:* </label><input tabindex="5" class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
-										<p class="form"><label class="label" for="article_author">Author:* </label><input tabindex="6" class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
+										<p class="form"><label class="label" for="article_title">Title:* </label><input tabindex="6" class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
+										<p class="form"><label class="label" for="article_author">Author:* </label><input tabindex="7" class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
 										<p class="laylah"><label for="laylah">Required</label><input type="text" id="laylah" name="laylah" tabindex="999" /></p>
 										<p class="form"><label class="label" for="journal_date">Publication Date:* </label><input tabindex="8" class="text half<?php if(isset($dateError)){echo ' fail';}?>" type="text" id="journal_date" name="journal_date" value="<?php if(isset($journal_date)){echo $journal_date;} ?>" /></p>
-										<p class="form"><label class="label" for="isbn">ISBN: </label><input class="text half" type="text" id="isbn" name="isbn" tabindex="9" value="<?php if(isset($isbn)){echo $isbn;} ?>" /></p>
-										<p class="form"><label class="label" for="patron_message">Special Instructions: </label><textarea tabindex="10" class="textarea" id="patron_message" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
-										<p class="form"><input class="submit full" type="submit" name="submit" value="Send Request" tabindex="11" ></p>
+										<p class="form"><label class="label" for="publisher">Publisher: </label><input tabindex="9" class="text half" type="text" id="publisher" name="publisher" value="<?php if(isset($publisher)){echo $publisher;} ?>" /></p>
+										<p class="form"><label class="label" for="isbn">ISBN: </label><input class="text half" type="text" id="isbn" name="isbn" tabindex="10" value="<?php if(isset($isbn)){echo $isbn;} ?>" /></p>
+										<p class="form"><label class="label" for="patron_message">Special Instructions: </label><textarea tabindex="11" class="textarea" id="patron_message" name="patron_message" ><?php if(isset($patron_message)){echo $patron_message;} ?></textarea></p>
+										<p class="form"><input class="submit full" type="submit" name="submit" value="Send Request" tabindex="12" ></p>
 									</form>
 								<?php endif; ?>
 
