@@ -45,7 +45,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 
 	// Confirm seminary patron
 		if(trim($_POST['patron_confirm']) === ''){
-			$confirmError = 'You must confirm that you are a Seminary student or faculty member.<br>Non-seminary patrons, please request materials through <a href="http://milligan.on.worldcat.org/advancedsearch/" target="_blank">WorldCat</a>';
+			$confirmError = 'You must confirm that you are a Seminary student or faculty member.<br>All other Milligan students, faculty and staff should make their requests through <a href="http://milligan.on.worldcat.org/advancedsearch/" target="_blank">WorldCat</a>';
 			$hasError = true;
 		} else {
 			$patron_confirm = true;
@@ -166,7 +166,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										<p class="form"><label class="label" for="patron_lastname">Last Name:* </label><input tabindex="2" class="text half<?php if(isset($lastNameError)){echo ' fail';}?>" type="text" id="patron_lastname" name="patron_lastname" value="<?php if(isset($patron_lastname)){echo $patron_lastname;} ?>"/></p>
 										<p class="form"><label class="label" for="patron_email">Milligan Email:* </label><input tabindex="3" class="text three-fourths<?php if(isset($emailError)){echo ' fail';}?>" type="text" id="patron_email" name="patron_email" value="<?php if(isset($patron_email)){echo $patron_email;} ?>" /></p>
 										<p class="form"><label class="label" for="patron_phone">Phone: </label><input tabindex="4" class="text half" type="text" id="patron_phone" name="patron_phone" value="<?php if (isset($patron_phone)){echo $patron_phone;} ?>" /></p>
-										<p class="form"><input type="checkbox" id="patron_confirm" name="patron_confirm" tabindex="5" value="patron_confirm" <?php if (isset($patron_confirm)){echo 'checked';}?>> <label class="<?php if (isset($confirmError)){echo 'fail';}?>" for="patron_confirm">I confirm that I am a Seminary Student or Faculty member</label></p>
+										<p class="form"><input type="checkbox" id="patron_confirm" name="patron_confirm" tabindex="5" value="patron_confirm" <?php if (isset($patron_confirm)){echo 'checked';}?>> <label class="<?php if (isset($confirmError)){echo 'fail';}?>" for="patron_confirm">I confirm that I am a Seminary Student or Faculty member*</label><br><small>All other Milligan students, faculty and staff should make their requests through <a href="http://milligan.on.worldcat.org/advancedsearch/" target="_blank">WorldCat</a></small></p>
 										<h3>Requested Item Information</h3>
 										<p class="form"><label class="label" for="article_title">Title:* </label><input tabindex="6" class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
 										<p class="form"><label class="label" for="article_author">Author:* </label><input tabindex="7" class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
