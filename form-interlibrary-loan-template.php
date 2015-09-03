@@ -10,16 +10,16 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 
 	//If page loaded from EBSCO Discovery Service ILL request
 	if(isset($_GET['sendto'])) {
-		if (strlen(trim($_GET['ti'])) > 1)
+		if (strlen(trim($_GET['ti'])) > 0)
 			$article_title = trim($_GET['ti']);
 		else $article_title = "N/A";
-		if (strlen(trim($_GET['au'])) > 1)
+		if (strlen(trim($_GET['au'])) > 0)
 			$article_author = trim($_GET['au']);
 		else $article_author = "N/A";
-		if (strlen(trim($_GET['JN'])) > 1)
+		if (strlen(trim($_GET['JN'])) > 0)
 			$article_journal = trim($_GET['JN']);
 		else $article_journal = "N/A";
-		if (strlen(trim($_GET['Dt'])) > 1)
+		if (strlen(trim($_GET['Dt'])) > 0)
 			$journal_date = trim($_GET['Dt']);
 		else $journal_date = "N/A";
 		$journal_volume = trim($_GET['vi']);
