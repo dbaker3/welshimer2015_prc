@@ -23,7 +23,7 @@ body {
    min-width:320px;
    max-width:1100px;
    position:static;
-   @media all and (min-width:800px) {
+   @media all and (min-width:1024px) {
       min-width:960px;
       margin:0 auto;
    }
@@ -163,7 +163,7 @@ body {
    transition: right linear 0.25s;
    border: 1px solid $black;
    border-right: none;
-   @media all and (min-width:800px) {
+   @media all and (min-width:1024px) {
       background-color: transparent;
       @include border-left-radius();
       right:5%;
@@ -201,7 +201,7 @@ body {
       color:$black;
       left: 5px;
    }
-   @media all and (min-width:800px) {
+   @media all and (min-width:1024px) {
       visibility:hidden;
    }
 }
