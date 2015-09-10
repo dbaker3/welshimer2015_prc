@@ -32,7 +32,7 @@ window.matchMedia = window.matchMedia || (function(doc, undefined){
 
 /*------------- Adaptive Menu Scripts ---------------*/
 	var tabletWidth = '600px';
-	var desktopWidth = '800px';
+	var desktopWidth = '1024px';
 	var tablet = matchMedia('(min-width:' + tabletWidth + ')');
 	var desktop = matchMedia('(min-width:' + desktopWidth + ')');
 	var device = getDeviceSize();

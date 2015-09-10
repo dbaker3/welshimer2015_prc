@@ -17,7 +17,7 @@
    width:100%;
    z-index:3;
    border-bottom: 5px solid $orange;
-   @media all and (min-width:800px){
+   @media all and (min-width:1024px){
       display:none;
    }
 }
@@ -64,13 +64,13 @@
       cursor:pointer;
    }
    .parent > a {
-      @media all and (min-width:800px){
+      @media all and (min-width:1024px){
          padding-right:1em !important;
       }
       &:after {
          float:right;
          content:'\002b'; /*plus sign*/
-         @media all and (min-width:800px){
+         @media all and (min-width:1024px){
             font-family:'icon-font';
             font-size: 70%;
                position:absolute;
@@ -126,7 +126,7 @@
       font-family:icon-font;
       font-size:1.25em;
       text-align:center;
-      @media all and (min-width:800px){
+      @media all and (min-width:1024px){
          top:0.4em;
          left:0.5em;
          font-size:1.25em;
@@ -190,20 +190,20 @@
 
    .div-below {
       border-bottom:solid 1px darken(white, 90%);
-      @media all and (min-width:800px){
+      @media all and (min-width:1024px){
          border-bottom:solid 1px darken(white, 85%);
       }
       & > a {padding-bottom:0.25em;}
    }
    .div-above {
       border-top:solid 1px darken(white, 80%);
-      @media all and (min-width:800px){
+      @media all and (min-width:1024px){
          border-top:solid 1px darken(white, 75%);
       }
       & > a {padding-top:0.25empx;}
    }
 
-   @media all and (min-width:800px) {
+   @media all and (min-width:1024px) {
       .display-toggle{
       }
       #topbar {
@@ -303,7 +303,7 @@
 }
 
 
-@media all and (min-width:800px){
+@media all and (min-width:1024px){
    .secondary-menu-main {
       display:block;
       width:32em;
@@ -342,7 +342,7 @@
       display:none;
    }
    
-} /* END @media all and (min-width:800px) */
+} /* END @media all and (min-width:1024px) */
 
 
 .main-login {
