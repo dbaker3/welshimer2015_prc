@@ -76,6 +76,18 @@ adapt(device); //Do first adapt on load
 		}
 	});
    
+  /* Open submenus with Enter key or mouse click (accessiblity) */
+  jQuery( ".main-navigation ul li > a" ).click(function() {
+    if (jQuery(this).siblings('.sub-menu').css('visibility') == 'hidden') {
+      jQuery(this).siblings('.sub-menu').css('visibility','visible');
+      jQuery(this).siblings('.sub-menu').css('opacity','1');
+    }
+    else {
+      jQuery(this).siblings('.sub-menu').css('visibility','');
+      jQuery(this).siblings('.sub-menu').css('opacity','');
+    }
+  });
+   
    
    /* SLide sidebar out/in on mobile for a moment to let people know it's there */
    if (device !== 'desktop') {
