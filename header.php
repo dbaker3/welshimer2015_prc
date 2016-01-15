@@ -104,19 +104,8 @@
 	<header id="masthead" class="site-header" role="banner">
 		<nav class="secondary-menu menu-text"><div class="secondary-menu-main"><?php wp_nav_menu( array( 'theme_location' => 'secondary' ) ); ?></div><div class="secondary-menu-select"><select title="Milligan Links"><option>Go to...</option></select></div></nav>
 		<div id="hgroup">
-         <?php if (is_page_template('kb-page.php')) { ?>
-            <h4 class="milligan-logo"><a href="<?php echo home_url( '/kb' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library KB</a></h4>
-         <?php }
-         else { ?>
-            <h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/milligan.png" alt="Milligan" /></a></h4>
-            <h4 id="subtitle-desktop" class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library &amp; Seminary Library</a></h4>
-            <h4 id="subtitle-mobile" class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer &amp; Seminary Libraries</a></h4>
-            <!--<img src="<?php bloginfo( 'template_url' ); ?>/images/pr_compliant.png" style="position:absolute;left:-13em;top:0em;width:134px;" />-->
-         <?php } ?>
-         
-         <!--
-			<h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/milligan-logo.png" /></a></h4>
-         -->
+            <h4 class="milligan-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/milliganlibraries.png" alt="Milligan" /></a></h4>
+            <h4 id="subtitle-desktop" class="welshimer-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'description' ); ?>">P.H. Welshimer Memorial Library &amp; Emmanuel Christian Seminary Library</a></h4>
 		</div> <!-- #hgroup -->
 	</header><!-- #masthead .site-header -->
 
