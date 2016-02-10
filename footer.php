@@ -16,7 +16,7 @@
       <div class="footer-logo"><a href="http://www.milligan.edu" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/milligan.png" alt="Milligan" /></a></div>
       <div class="site-info">
 			<?php do_action( 'welshimer2013_credits' ); ?>
-         ©2014 Milligan College. All Rights Reserved.
+         &copy;<?php echo date("Y") ?> Milligan College. All Rights Reserved.
 		</div><!-- .site-info -->
       </div>
       <div class="footer-column">
