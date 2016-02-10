@@ -1,6 +1,10 @@
 <?php
 /**
- * The template for displaying Interactive: Milligan Campus then and now
+Template Name: No Sidebar
+*/
+
+/**
+ * The template for displaying pages with no sidebar
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
