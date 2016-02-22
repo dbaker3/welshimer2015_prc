@@ -193,7 +193,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 								<?php if(isset($emailSent) && $emailSent == true): ?>
 
 									<div class="alert success">
-										<p>Your ILL request has been successfully submitted. You will be notified via email when your material is available. Any additional questions or comments should be directed to Anne Osborne, User Services Librarian, at <a href="mailto:aerosborne@milligan.edu">aerosborne@milligan.edu</a> or 423-461-8495.</p>
+										<p>Thank you for your request. Requests are processed within one week of receipt. Average time to receive items are: 5 days for articles; 2 weeks for books. You will be contacted regarding any lending or postage fees above $15 that are assessed before your request is processed. You will be contacted by email to pick up book/AV material. Articles will be emailed to your Milligan College email address.</p>
 										<p><a class="submit full"href="<?php the_permalink() ?>">Submit Another Request</a>
 										</div>
 
