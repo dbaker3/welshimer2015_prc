@@ -157,4 +157,16 @@ add_filter('comment_form_default_fields', 'comment_honeypot_field_mod');
 // redirect logins to homepage
 add_filter( 'login_redirect', create_function( '$url,$query,$user', 'return home_url();' ), 10, 3 );
 
-?>
+
+// Customize login page
+function the_url() {return get_bloginfo('url');}
+add_filter('login_headerurl', 'the_url');
+
+function the_sitename() {return get_bloginfo('name');}
+add_filter('login_headertitle', 'the_sitename');
+
+function my_login_logo() { 
+	$stylesheet_dir = get_stylesheet_directory_uri();
+    echo "<style type='text/css'> .login h1 a {background-image: url($stylesheet_dir/images/milliganlibraries.png); margin: 0 auto; background-size: 100%; width: auto; height: 32px;}</style>";
+}
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
