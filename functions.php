@@ -167,6 +167,6 @@ add_filter('login_headertitle', 'the_sitename');
 
 function my_login_logo() { 
 	$stylesheet_dir = get_stylesheet_directory_uri();
-    echo "<style type='text/css'> .login h1 a {background-image: url($stylesheet_dir/images/milliganlibraries.png); margin: 0 auto; background-size: 100%; width: auto; height: 32px;}</style>";
+    echo "<style type='text/css'> #login h1 a {background-image: url($stylesheet_dir/images/milliganlibraries.png); margin: 0 auto; background-size: 100%; width: auto; height: 32px;} #login p.message {margin-top:18px;}</style>";
 }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
