@@ -170,6 +170,3 @@ function my_login_logo() {
     echo "<style type='text/css'> #login h1 a {background-image: url($stylesheet_dir/images/milliganlibraries.png); margin: 0 auto; background-size: 100%; width: auto; height: 32px;} #login p.message {margin-top:18px;}</style>";
 }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
-
-// Disable trackback urls
-add_filter('trackback_url', '');
