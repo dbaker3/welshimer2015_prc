@@ -94,11 +94,11 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 			$article_title = trim($_POST['article_title']);
 		}
 	//Check to make sure that the author field is not empty
-		if(trim($_POST['article_author']) === '') {
+		if(trim($_POST['article_auth']) === '') {
 			$authorError = 'You must enter an author.';
 			$hasError = true;
 		} else {
-			$article_author = trim($_POST['article_author']);
+			$article_author = trim($_POST['article_auth']);
 		}
 
 	//Check to make sure that the journal field is not empty
@@ -256,7 +256,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										</select></p>
 										<h3>Requested Item Information</h3>
 										<p class="form"><label class="label" for="article_title">Title:* </label><input class="text<?php if(isset($titleError)){echo ' fail';}?>" type="text" id="article_title" name="article_title" value="<?php if(isset($article_title)){echo $article_title;} ?>" /></p>
-										<p class="form"><label class="label" for="article_author">Author:* </label><input class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_author" name="article_author" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
+										<p class="form"><label class="label" for="article_auth">Author:* </label><input class="text<?php if(isset($authorError)){echo ' fail';}?>" type="text" id="article_auth" name="article_auth" value="<?php if(isset($article_author)){echo $article_author;} ?>" /></p>
 										<p class="form"><label class="label" for="article_journal">Source:* </label><input class="text<?php if(isset($journalError)){echo ' fail';}?>" type="text" id="article_journal" name="article_journal" value="<?php if(isset($article_journal)){echo $article_journal;} ?>" /></p>
 										<p class="laylah"><label for="laylah">Required</label><input type="text" id="laylah" name="laylah" tabindex="999" /></p>
 										<p class="form"><label class="label" for="journal_date">Publication Date:* </label><input class="text half<?php if(isset($dateError)){echo ' fail';}?>" type="text" id="journal_date" name="journal_date" value="<?php if(isset($journal_date)){echo $journal_date;} ?>" /></p>
