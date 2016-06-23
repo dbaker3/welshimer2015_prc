@@ -76,3 +76,11 @@
   position: absolute;
   top: -9999px;
 }
+
+.danger {
+    background-color: #dd4540;
+}
+
+.danger > a {
+    background-color: #dd4540 !important;
+}
