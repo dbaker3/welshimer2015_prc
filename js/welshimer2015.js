@@ -130,7 +130,16 @@ jQuery( '.acc-list-category' ).click( function() {
 	
 /* acc-sublist toggle when acc-list-expand button clicked */
 jQuery('.acc-list-expand').click(function() {
-  jQuery('.acc-sublist').toggleClass('hidden')
+  if (jQuery('.acc-list-expand').attr('data-lists-expanded') == 'true') {
+    jQuery('.acc-sublist').addClass('hidden');
+    jQuery('.acc-list > li').removeClass('open-item'); 
+    jQuery('.acc-list-expand').attr('data-lists-expanded', 'false');
+  }
+  else {
+    jQuery('.acc-sublist').removeClass('hidden');
+    jQuery('.acc-list > li').addClass('open-item');
+    jQuery('.acc-list-expand').attr('data-lists-expanded', 'true');
+  }
 });
 
 function getDeviceSize(){
