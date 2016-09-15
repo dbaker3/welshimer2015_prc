@@ -139,7 +139,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 		if(!isset($hasError)) {
         // email request to ILL account
         	if ($patron_program == "Graduate - Seminary") {
-	    		$emailTo = 'SEArndt@milligan.edu,JMWade@milligan.edu';
+	    		$emailTo = 'JMWade@milligan.edu';
         	}
 	    	else {
 	    		$emailTo = 'mc_ill@milligan.edu';
