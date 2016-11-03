@@ -67,12 +67,20 @@ div.acc-list a.acc-list-category {
 	li:nth-of-type(even) {
 		background:rgba($blue, 0.2);
 	}
-	li:hover{
+	li:not(.set-title-nolink):hover{
 		background:rgba($blue, 0.4)
+	}
+	li.set-title-nolink {
+		cursor: pointer;
 	}
 	a {
 		color:$black;
 		text-decoration:none;
+	}
+	li.volume-item a {
+		display: block;
+		border-left: 1px solid #aaa;
+    	padding-left: 3em;
 	}
 } /* .acc-sublist */
 
@@ -90,7 +98,6 @@ div.acc-list {
       content: none !important;
    }
 }
-
 
 
 .mc:before {

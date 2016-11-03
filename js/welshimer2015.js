@@ -120,11 +120,17 @@ adapt(device); //Do first adapt on load
 		jQuery( this ).toggleClass('eds-more-toggle-open');
 	});
 
-jQuery('.acc-sublist').toggleClass('hidden'); //For Onload // dbaker 8-28-14 changed addClass method on this line to toggleClass method.
+//jQuery('.acc-sublist').toggleClass('hidden'); //For Onload // dbaker 8-28-14 changed addClass method on this line to toggleClass method.
                                                            // This will initially hide sublists on page load so my tabbed searchbox plugin will unhide 
+jQuery('.acc-sublist').hide();
+   
+jQuery('.set-volumes').hide();
+jQuery('.set-title-nolink').click(function() {
+  jQuery(this).next('.set-volumes').slideToggle();
+});
 
 jQuery( '.acc-list-category' ).click( function() {
-		jQuery( this ).parent().children('.acc-sublist').toggleClass('hidden');
+		jQuery( this ).parent().children('.acc-sublist').slideToggle(); //toggleClass('hidden');
 		jQuery( this ).parent().toggleClass('open-item');
 	});
 	
@@ -190,7 +196,7 @@ function adapt(deviceVar){ //console.log(deviceVar);
   
   /* FAQ Page - Show "Library's Hours" section when anchor in URL */
   if (location.href.indexOf('faq/#hours') > -1) {
-     jQuery("#hours").parent().children(".acc-sublist").toggleClass("hidden");
+     jQuery("#hours").parent().children(".acc-sublist").slideToggle();
   }
   
   
