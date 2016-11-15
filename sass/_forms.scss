@@ -91,3 +91,55 @@ input[type="submit"] {
       }
    }
 } /* END welshimer-form */
+
+
+/* Gravity Forms plugin styles */
+.gform_wrapper {
+   
+   .gfield_label {
+      font-weight: Normal !important;
+   } 
+   
+   .gform_button {
+      display: block;
+      @include border-radius(2px);
+      background-color:$blue;
+      border:solid 1px $grey-80;
+      color:$white;
+      margin: 1em 0;
+      padding: 0.5em 2em;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+         @include transition();
+         background-color:$orange;
+         cursor:pointer;
+      }
+   } 
+    
+   .gf_repeater_add, .gf_repeater_remove {
+      border: 1px solid #666;
+      padding: 5px;
+      border-radius: 2px;
+	   margin-right: 10px; 
+	   
+      img {
+         vertical-align: sub; 
+      }
+   } 
+   
+   .gform_footer {
+      margin-left: 0% !important;
+      width: 100% !important;
+      input.gform_button {
+         width: 100%;
+      }
+   }
+   
+   @media all and (max-width: 600px) { 
+      .gfield_label, input.medium, select.medium, div.ginput_complex {
+         width: 100% !important;
+      } 
+   }
+   
+} /* END gform_wrapper */
