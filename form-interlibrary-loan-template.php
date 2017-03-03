@@ -224,7 +224,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 										<?php if(isset($pagesError)){echo $pagesError . '<br />';}?>
 									</div>
 								<?php else: ?>
-									<div class="alert info"><p>Please complete all required fields and citation information. If not available, please indicate N/A in the field. Some information may be filled from citation information provided by the database. Complete all contact information including your Milligan College email address and indicate your preferred pickup location for items. Thank you!</p>
+									<div class="alert info"><p>Please complete all required fields and citation information. If not available, please indicate N/A in the field. Some information may be filled from citation information provided by the database. Complete all contact information including your Milligan College email address and indicate your preferred pickup location for items.</p><p>Libraries may assess a charge for lending interlibrary loan items. Milligan Libraries will pay this charge on your behalf. However, before filling the affected request you will be notified by email and asked to confirm your continuing need for the requested item. Once confirmation is received we will process your request immediately. Thank you!</p>
 									</div>
 
 									<?php endif; ?>
