@@ -201,8 +201,8 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 								<?php if(isset($emailSent) && $emailSent == true): ?>
 
 									<div class="alert success">
-										<p>Thank you for your request. Requests are processed within one week of receipt. Average time to receive items are: 5 days for articles; 2 weeks for books. You will be contacted regarding any lending or postage fees above $15 that are assessed before your request is processed. You will be contacted by email to pick up book/AV material. Articles will be emailed to your Milligan College email address.</p>
-										<p><a class="submit full"href="<?php the_permalink() ?>">Submit Another Request</a>
+										<p>Thank you for your request. Requests are processed within one week. Average time to receive are: 5 days for articles; 2 weeks for books. Libraries may assess a lending charge. Milligan Libraries will pay this charge on your behalf. However, you will be asked to confirm continuing need before your request is filled. You will be contacted by email to pick up book/AV items. Articles will be emailed to your Milligan College email address.</p>
+										<p><a class="submit full"href="<?php the_permalink() ?>">Submit Another Request</a></p>
 										</div>
 
 								<?php else: ?>
