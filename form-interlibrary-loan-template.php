@@ -165,7 +165,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
 				$body .= '<p><strong>Special Instructions: </strong></p><p>' . $patron_message . '</p>';
 				$body .= '<p><strong>Database: </strong>' . $article_db . '</p>';
 				$body .= '<p><strong>Item Number: </strong>' . $item_number . '</p>';
-			$headers[] = 'From: ILL Webform <mc_ill@milligan.edu>';
+			$headers[] = 'From: ILL Webform <library@milligan.edu>';
 			$headers[] = 'Reply-To: ' . $patron_email;
 			$headers[] = 'content-type: text/html';
 			wp_mail( $emailTo, $subject, $body, $headers );
@@ -174,7 +174,7 @@ remove_filter('the_content', 'wpautop'); // Keeps WP from adding the annoying <p
          $emailTo = $patron_email;
          $subject = 'Interlibrary Loan Request Confirmation';
          $headers = '';
-         $headers[] = 'From: ILL Webform <mc_ill@milligan.edu>';
+         $headers[] = 'From: ILL Webform <library@milligan.edu>';
 			$headers[] = 'Reply-To: mc_ill@milligan.edu';
 			$headers[] = 'content-type: text/html';
          wp_mail( $emailTo, $subject, $body, $headers );
