@@ -170,3 +170,15 @@ function my_login_logo() {
     echo "<style type='text/css'> #login h1 a {background-image: url($stylesheet_dir/images/milliganlibraries.png); margin: 0 auto; background-size: 100%; width: auto; height: 32px;} #login p.message {margin-top:18px;}</style>";
 }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+// validate Milligan email in Gravity Forms
+add_filter( 'gform_field_validation_7_2', 'gform_check_valid_milligan_email', 10, 4 ); // ILL journal request form
+add_filter( 'gform_field_validation_3_8', 'gform_check_valid_milligan_email', 10, 4 ); // Faculty new book media request form
+function gform_check_valid_milligan_email($result, $value, $form, $field) {
+  if ( $result['is_valid'] && !eregi("^[a-z0-9._%-]*@.*milligan\.edu$", strtolower(trim($value)))) {
+        $result['is_valid'] = false;
+        $result['message'] = 'You must enter a valid Milligan email address.';
+    }
+    return $result;
+}
