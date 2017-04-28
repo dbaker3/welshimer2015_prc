@@ -175,6 +175,9 @@
    .mail > a:before {
       content: "\e002";
    }
+   .folder > a:before {
+      content: "\e92f";
+   }
    .mcsearch > a:before {
       content:"\e001";
    }
