@@ -111,6 +111,9 @@
          border:none;
       }
    }
+   .main-navigation .sub-menu .parent a {
+      padding:0.5em 1em 0.5em 3em;
+   }
    .main-navigation li:hover > a {
       background:$orange;
       @include transition();
@@ -128,6 +131,7 @@
    .menu-icon {
       position:relative;
    }
+   .sub-menu .parent.menu-icon a {padding: 0.5em 1em 0.5em 2.5em !important;}
    .sub-menu .menu-icon a {padding:0.5em 0.5em 0.5em 2.5em !important;}
    .menu-icon > a:before {
       position:absolute;
