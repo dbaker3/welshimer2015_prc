@@ -81,7 +81,17 @@
             content: '\e013' !important;
             }
          }
+   }
+   // sub-submenu
+   .parent {
+      .parent > a {
+         &:after {
+            @media all and (min-width: 1024px) {
+               content: '\e00f' !important /* right arrow */
+            }
+         }
       }
+   }
    .open-item > a:after {
       content:'\2013'; /*minus sign*/
    }
@@ -253,6 +263,10 @@
          top: 2.5em;
          left: 0;
          visibility:hidden;
+         .sub-menu {
+            left: 18em !important;   // match value below on .main-navigation ul ul a
+            top: 0 !important;
+         }
       }
       .main-navigation .sub-menu a {
          background:$grey;
@@ -262,7 +276,7 @@
       .main-navigation ul ul ul {
       }
       .main-navigation ul ul a {
-         width:18em;
+         width:18em;                  // match value on sub-submenu above
       }
       .main-navigation ul ul li {
       }

@@ -63,7 +63,8 @@ adapt(device); //Do first adapt on load
 		}
 	});
 
-	jQuery( '.parent' ).click( function() {
+	jQuery( '.parent' ).click( function(e) {
+	  e.stopPropagation();
 		if (device !== 'desktop' ) {
 			jQuery( this ).children('.sub-menu').toggleClass('display-toggle');
 			jQuery ( this ).toggleClass('open-item');
