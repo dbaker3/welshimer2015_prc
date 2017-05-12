@@ -198,6 +198,7 @@ function adapt(deviceVar){ //console.log(deviceVar);
   /* FAQ Page - Show "Library's Hours" section when anchor in URL */
   if (location.href.indexOf('faq/#hours') > -1) {
      jQuery("#hours").parent().children(".acc-sublist").slideToggle();
+     jQuery("#libraryspaces").parent().children(".acc-sublist").slideToggle();
   }
   
   
