@@ -93,6 +93,10 @@ div.acc-list {
       a {
          text-decoration:underline;
       }     
+      div.acc-list > a {
+      	color: #fff;
+      	text-decoration: none;
+      }
    }
    div.open-item > a:after {
       content: none !important;
