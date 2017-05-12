@@ -199,6 +199,9 @@ function adapt(deviceVar){ //console.log(deviceVar);
   if (location.href.indexOf('faq/#hours') > -1) {
      jQuery("#hours").parent().children(".acc-sublist").slideToggle();
      jQuery("#libraryspaces").parent().children(".acc-sublist").slideToggle();
+     jQuery('html, body').animate({
+        scrollTop: jQuery('#hours').offset().top
+     }, 500);
   }
   
   
