@@ -25,24 +25,24 @@
       background-color: $orange;
 		color:$white;
 	}
-	&:after {
-		content:'\002b'; /*plus sign*/
+	/*&:after {
+		content:'\002b'; 
 		position:absolute;
 		right:0.5em;
 		font-family:icon-font;
-	}
+	}*/
 }
 
 div.acc-list a.acc-list-category {
    white-space: normal;
-   &:after {
+   /*&:after {
       content: none;
-   }
+   }*/
 }
 
-.open-item > a:after {
-		content:'\2013'; /* !important; minus sign*/
-}
+/*.open-item > a:after {
+		content:'\2013'; 
+}*/
 
 
 .acc-sublist { 
@@ -82,6 +82,16 @@ div.acc-list a.acc-list-category {
 		border-left: 1px solid #aaa;
     	padding-left: 3em;
 	}
+	.acc-list-category {
+	   background-color: #40abba50;
+      color: black !important;
+      border: 1px solid #40abba;	
+	}
+	.acc-sublist { /* double nested */
+		.acc-list-category {
+			background-color:#40abba25; 
+		}
+	}
 } /* .acc-sublist */
 
 div.acc-list {
@@ -98,11 +108,20 @@ div.acc-list {
       	text-decoration: none;
       }
    }
-   div.open-item > a:after {
+   /*div.open-item > a:after {
       content: none !important;
-   }
+   }*/
 }
 
+.acc-list-link {
+	&:after {
+      font-family:icon-font;
+      content:'\e016'; /*link*/
+      position:relative;
+      left:0.5em;
+      top:0.2em;
+   }
+}
 
 .mc:before {
 	@include main-sprite(mc);
