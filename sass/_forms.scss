@@ -157,3 +157,43 @@ input[type="submit"] {
    }
    
 } /* END gform_wrapper */
+
+
+/* Gravity Wiz Nested Forms */
+
+.ui-dialog .ui-widget-header {
+   height: 65px !important;
+}
+
+.gpnf-dialog .ui-dialog-content {
+   margin: 1em;
+   padding: 0 !important;
+}
+
+.gpnf-dialog.ui-dialog {
+   z-index: 99999 !important;
+}
+
+.gpnf-add-entry {
+   display: block;
+   -moz-border-radius: 2px;
+   -webkit-border-radius: 2px;
+   border-radius: 2px;
+   background-color: #40abba;
+   border: solid 1px #333;
+   color: #fff;
+   margin: 1em 0;
+   padding: 0.5em 2em;
+   text-align: center;
+   text-decoration: none;
+}
+
+.gpnf-add-entry:hover {
+   -moz-transition: all 200ms ease-out 100ms;
+   -o-transition: all 200ms ease-out 100ms;
+   -webkit-transition: all 200ms ease-out;
+   -webkit-transition-delay: 100ms;
+   transition: all 200ms ease-out 100ms;
+   background-color: #ea7125;
+   cursor: pointer;
+}  
